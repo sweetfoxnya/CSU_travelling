@@ -2,11 +2,31 @@
   "name": "csu_travelling",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.tsx",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack serve --env mode=development",
+    "build:dev": "webpack --env mode=development",
+    "build:prod": "webpack --env mode=production"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/dotenv-webpack": "7.0.7",
+    "@types/node": "20.8.3",
+    "@types/webpack": "5.28.3",
+    "@types/react-dom": "18.3.0",
+    "dotenv-webpack": "8.1.0",
+    "html-webpack-plugin": "5.6.0",
+    "ts-loader": "9.5.0",
+    "ts-node": "10.9.1",
+    "typescript": "5.2.2",
+    "webpack": "5.91.0",
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "5.0.4"
+  }
 }
