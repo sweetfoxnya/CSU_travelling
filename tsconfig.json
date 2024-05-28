@@ -11,15 +11,13 @@
     "esModuleInterop": true,
     "baseUrl": "src",
     "paths": {
-      "components/*": ["components/*"],
-      "constants/*": ["constants/*"],
-      "interfaces/*": ["interfaces/*"],
-      "mock/*": ["mock/*"],
-      "pages/*": ["pages/*"],
-      "helpers/*": ["helpers/*"],
-      "app/*": ["app/*"]
+      "@*": ["./*"],
     }
   },
+  "include": [
+    "src",
+    "src/declaration.d.ts"
+  ],
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
