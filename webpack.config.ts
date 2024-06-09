@@ -66,6 +66,7 @@ export default (env: EnvVariables) => {
     devtool: isDev ? 'inline-source-map' : false,
     // dev-server options
     devServer: isDev ? {
+      historyApiFallback: true,
       port: env.port ?? 3000,
       open: true,
     } : undefined,
