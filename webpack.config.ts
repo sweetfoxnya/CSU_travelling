@@ -46,7 +46,7 @@ export default (env: EnvVariables) => {
           exclude: /node_modules/,
         },
         {
-          test: /\.png/,
+          test: /\.(?:jpg|png)$/,
           type: 'asset/resource',
         }
       ]

@@ -1,20 +1,18 @@
 import styled from "styled-components";
-import backgroundImage from "../../images/back.png";
-import Mont from '../../font/Mont.ttf';
-import Mr from '../../font/mr.otf';
-import MontBig from '../../font/MontBig.ttf';
+
+import back from '@static/images/back.png';
 
 export const Container = styled.div`
     position: relative;
-    width: 1536px;
+    
+    width: 100%;
     height: 740px;
-    gap: 0;
-    padding: 0;
-    z-index: 0;
-    background: rgba(0, 0, 0, .30)url(${({ background }) => backgroundImage});
+    
+    background: rgba(0, 0, 0, .30) url(${back});
     background-size: cover;
     background-blend-mode: darken;
 `;
+
 export const Logo = styled.img`
     width: 60px;
     height: 40px;
@@ -27,6 +25,7 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
 `;
+
 export const Title = styled.div`
     position: relative;
 `;
@@ -37,33 +36,27 @@ export const TitleTop = styled.div`
     line-height: 87px;
     text-align: left;
     color: white;
-    font-family: Mont;
+    font-family: Mont, sans-serif;
     margin: 0;
     position: absolute;
     bottom: -145px;
-    @font-face {
-        font-family: 'Mont';
-        src: url(${Mont}) format('truetype');
-    }
+    
 `;
+
 export const TitleMiddle = styled.p`
     font-size: 55px;
     font-weight: 400;
     line-height: 64px;
     text-align: left;
     color: #FFC700;
-    font-family: Mr;
+    font-family: Mr, serif;
     margin: 0;
     position: absolute;
     bottom: -185px;
     right: 737px;
-    
-    @font-face {
-        font-family: 'Mr';
-        src: url(${Mr}) format('truetype');
-    }
 
 `;
+
 export const TitleBottom = styled.p`
     font-size: 96px;
     font-weight: 900;
@@ -74,12 +67,9 @@ export const TitleBottom = styled.p`
     margin: 0;
     position: absolute;
     bottom: -245px;
-    font-family: MontBig;
-    @font-face {
-        font-family: 'MontBig';
-        src: url(${MontBig}) format('truetype');
-    }
+    font-family: MontBig, sans-serif;
 `;
+
 export const ExcursionButton = styled("button")`
     width: 230px;
     height: 50px;
