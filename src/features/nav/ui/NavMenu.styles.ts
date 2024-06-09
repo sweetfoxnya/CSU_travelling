@@ -6,6 +6,7 @@ import {Color} from "@shared";
 
 export const Container = styled.nav`
     display: flex;
+    align-items: center;
 `;
 
 export const Link = styled(ReactLink)`
