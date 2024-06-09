@@ -7,10 +7,18 @@ import {Input} from "@shared";
 import {RegisterType} from "../../model";
 import * as SC from "./RegisterForm.styles";
 
-export const RegisterForm = () => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<RegisterType>();
+interface RegisterFormProps {
+  handleFormSubmit: (data: RegisterType) => void;
+}
+
+const Error = () => <span style={{color: 'red'}}>Что-то не так(</span>;
+
+export const RegisterForm = (props: RegisterFormProps) => {
+  const {register, handleSubmit, watch, formState: {errors}} = useForm<RegisterType>();
+
+  const {handleFormSubmit} = props;
   const onSubmit: SubmitHandler<RegisterType> = (data) => {
-    console.log(data);
+    handleFormSubmit(data);
   }
 
   const [isShownPass, setIsShownPass] = useState(false);
@@ -21,21 +29,24 @@ export const RegisterForm = () => {
         <SC.Box>
           <Input
             type='text'
-            placeholder='Login'
-            {...register('login')}
+            placeholder='Email'
+            {...register('email', {required: true})}
           />
+          {errors.email && <Error />}
           <SC.Horizon>
             <SC.Box>
               <Input
                 type={isShownPass ? 'text' : 'password'}
                 placeholder='Password'
-                {...register('password')}
+                {...register('password', {required: true, minLength: 8})}
               />
+              {errors.password && <Error />}
               <Input
                 type={isShownPass ? 'text' : 'password'}
                 placeholder='Repeat password'
-                {...register('passwordCheck')}
+                {...register('passwordCheck', {required: true, minLength: 8})}
               />
+              {errors.passwordCheck && <Error />}
             </SC.Box>
             <button
               type="button"

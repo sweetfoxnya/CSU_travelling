@@ -1,10 +1,10 @@
 export interface LoginType {
-  login: string;
+  email: string;
   password: string;
 }
 
 export interface RegisterType {
-  login: string;
+  email: string;
   password: string;
   passwordCheck: string;
 }

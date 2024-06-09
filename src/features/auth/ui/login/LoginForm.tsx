@@ -21,8 +21,8 @@ export const LoginForm = () => {
         <SC.Box>
           <Input
             type='text'
-            placeholder='Login'
-            {...register('login')}
+            placeholder='Email'
+            {...register('email')}
           />
           <SC.Horizon>
             <Input
