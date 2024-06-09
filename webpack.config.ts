@@ -29,7 +29,7 @@ export default (env: EnvVariables) => {
     },
     plugins: [
       // plugin for creating build html using own html
-      new HtmlWebPackPlugin({ template: path.resolve(__dirname, 'src/public', 'index.html') }),
+      new HtmlWebPackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') }),
       // slow plugin showing progress of build
       isDev && new webpack.ProgressPlugin(),
       new Dotenv({
@@ -59,7 +59,7 @@ export default (env: EnvVariables) => {
         "@features": path.resolve(__dirname, 'src/features'),
         "@entities": path.resolve(__dirname, 'src/entities'),
         "@shared": path.resolve(__dirname, 'src/shared'),
-        "@public": path.resolve(__dirname, 'src/public'),
+        "@static": path.resolve(__dirname, 'src/static'),
       }
     },
     // getting stacktrace
