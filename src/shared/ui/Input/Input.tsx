@@ -2,10 +2,10 @@ import React, {ComponentPropsWithoutRef} from 'react';
 
 import * as Styles from './styles';
 
-export const Input = ({width, height, ...restProps}: ComponentPropsWithoutRef<'input'>) => (
-  <Styles.Input
-    width={width}
-    height={height}
-    {...restProps}
-  />
-);
+export const Input =
+  React.forwardRef<HTMLInputElement, ComponentPropsWithoutRef<'input'>>((props, ref) => (
+    <Styles.Input
+      {...props}
+      ref={ref}
+    />
+));
