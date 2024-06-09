@@ -26,10 +26,11 @@ export default (env: EnvVariables) => {
       filename: '[name].[contenthash].js',
       // to delete old builds
       clean: true,
+      publicPath: 'auto'
     },
     plugins: [
       // plugin for creating build html using own html
-      new HtmlWebPackPlugin({ template: path.resolve(__dirname, 'src/public', 'index.html') }),
+      new HtmlWebPackPlugin({ template: path.resolve(__dirname, 'src', 'index.html') }),
       // slow plugin showing progress of build
       isDev && new webpack.ProgressPlugin(),
       new Dotenv({
@@ -43,25 +44,30 @@ export default (env: EnvVariables) => {
           test: /\.tsx?$/,
           use: 'ts-loader',
           exclude: /node_modules/,
+        },
+        {
+          test: /\.png/,
+          type: 'asset/resource',
         }
       ]
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
       alias: {
-        "components": path.resolve(__dirname, 'src/components'),
-        "constants": path.resolve(__dirname, 'src/constants'),
-        "interfaces": path.resolve(__dirname, 'src/interfaces'),
-        "mock": path.resolve(__dirname, 'src/mock'),
-        "pages": path.resolve(__dirname, 'src/pages'),
-        "helpers": path.resolve(__dirname, 'src/helpers'),
-        "app": path.resolve(__dirname, 'src/app'),
+        "@app": path.resolve(__dirname, 'src/app'),
+        "@pages": path.resolve(__dirname, 'src/pages'),
+        "@widgets": path.resolve(__dirname, 'src/widgets'),
+        "@features": path.resolve(__dirname, 'src/features'),
+        "@entities": path.resolve(__dirname, 'src/entities'),
+        "@shared": path.resolve(__dirname, 'src/shared'),
+        "@static": path.resolve(__dirname, 'src/static'),
       }
     },
     // getting stacktrace
     devtool: isDev ? 'inline-source-map' : false,
     // dev-server options
     devServer: isDev ? {
+      historyApiFallback: true,
       port: env.port ?? 3000,
       open: true,
     } : undefined,

@@ -12,9 +12,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tanstack/react-query": "5.40.1",
+    "axios": "1.7.2",
+    "polished": "4.3.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "styled-components": "^6.1.11"
+    "react-hook-form": "7.51.5",
+    "react-router-dom": "6.23.1",
+    "styled-components": "6.1.11"
   },
   "devDependencies": {
     "@types/dotenv-webpack": "7.0.7",
