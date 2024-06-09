@@ -1,12 +1,13 @@
-import React, {PropsWithChildren} from 'react';
+import React from 'react';
+import {Outlet} from "react-router-dom";
 
 import * as Styles from './styles';
 
-export const MainLayout = (props: PropsWithChildren) => {
+export const MainLayout = () => {
   return (
     <Styles.Wrapper>
       <Styles.Container>
-        {props.children}
+        <Outlet />
       </Styles.Container>
     </Styles.Wrapper>
   );

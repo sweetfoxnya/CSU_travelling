@@ -1,2 +1,3 @@
 export * from './Home';
-export * from './Auth/ui';
+export * from './Login';
+export * from './Register';
