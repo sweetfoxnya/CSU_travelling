@@ -36,10 +36,10 @@ export const TitleTop = styled.div`
     line-height: 87px;
     text-align: left;
     color: white;
-    font-family: Mont, sans-serif;
+    font-family: Mont;
     margin: 0;
     position: absolute;
-    bottom: -145px;
+    bottom: -140px;
     
 `;
 
@@ -49,11 +49,11 @@ export const TitleMiddle = styled.p`
     line-height: 64px;
     text-align: left;
     color: #FFC700;
-    font-family: Mr, serif;
     margin: 0;
     position: absolute;
     bottom: -185px;
-    right: 737px;
+    right: 810px;
+    font-family: mr;
 
 `;
 
@@ -67,7 +67,7 @@ export const TitleBottom = styled.p`
     margin: 0;
     position: absolute;
     bottom: -245px;
-    font-family: MontBig, sans-serif;
+    font-family: MontBig;
 `;
 
 export const ExcursionButton = styled("button")`

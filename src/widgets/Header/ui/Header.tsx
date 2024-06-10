@@ -9,12 +9,8 @@ import * as SC from './Header.styles';
 export const Header = () => {
 
   return (
-    <SC.Container>
       <SC.Header>
-        <Logo />
         <NavMenu />
-        <Avatar image={''}/>
       </SC.Header>
-    </SC.Container>
   );
 };

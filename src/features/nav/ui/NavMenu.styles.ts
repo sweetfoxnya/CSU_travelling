@@ -11,6 +11,7 @@ export const Container = styled.nav`
     align-items: center;
     background-color: unset;
     padding: 45px 60px 0 200px;
+    
 `;
 
 export const Link = styled(ReactLink)`
@@ -18,6 +19,7 @@ export const Link = styled(ReactLink)`
     padding: 0 15px;
     text-decoration: none;
     font-size: 17px;
+    font-family: Mont;
 
     &:hover {
         color: ${Color.Yellow};

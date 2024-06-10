@@ -6,16 +6,19 @@ export const NavMenu = () => {
   return (
     <SC.Container>
       <SC.Link to='/'>
-        Home
+        Главная
       </SC.Link>
+        <SC.Link to='/excursions'>
+            Экскурсии
+        </SC.Link>
       <SC.Link to='/auth/login'>
-        Login
+        Войти
       </SC.Link>
       <SC.Link to='/auth/register'>
-        Register
+        Зарегистрироваться
       </SC.Link>
       <SC.Link to='/profile'>
-        Profile
+        Личный кабинет
       </SC.Link>
     </SC.Container>
   );
