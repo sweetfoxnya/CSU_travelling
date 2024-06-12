@@ -17,32 +17,29 @@ export const LoginForm = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <SC.Box>
-          <Input
-            type='text'
-            placeholder='Email'
-            {...register('email')}
-          />
-          <SC.Horizon>
-            <Input
-              type={isShownPass ? 'text' : 'password'}
-              placeholder='Password'
-              {...register('password')}
-            />
-            <button
-              type="button"
-              onClick={() => setIsShownPass(prev => !prev)}
-            >
-              @
-            </button>
-          </SC.Horizon>
-          <button type='submit'>
-            Submit
-          </button>
-        </SC.Box>
-      </form>
-      <Link to='/auth/register'>Register</Link>
+      <SC.LoginForm>
+        <SC.MainContainer>
+          <SC.CheckBox type="checkbox" aria-hidden="true" id="chk"/>
+          <SC.SignUp>
+            <SC.Form>
+              <SC.SignUpLabel htmlFor='chk' aria-hidden="true">Login</SC.SignUpLabel>
+              <SC.Input type="text" placeholder="User name"/>
+              <SC.Input type="password" placeholder="Password" />
+              <SC.Button>Login</SC.Button>
+            </SC.Form>
+          </SC.SignUp>
+          <SC.Login>
+            <SC.Form>
+              <SC.LabelForLogin htmlFor='chk' aria-hidden="true">SignUp</SC.LabelForLogin>
+              <SC.Input type="text" placeholder="User name" />
+              <SC.Input type="email" placeholder="Email" />
+              <SC.Input type="password" placeholder="Password" />
+              <SC.Button>SignUp</SC.Button>
+            </SC.Form>
+          </SC.Login>
+        </SC.MainContainer>
+      </SC.LoginForm>)
+
     </div>
   );
 };
