@@ -14,13 +14,13 @@ export const MultiStepForm = () => {
     <MultiStep
       activeStep={activePage}
     >
-      <SC.Wrapper>
+      <SC.Wrapper title='Город'>
         <CityForm />
       </SC.Wrapper>
-      <SC.Wrapper>
+      <SC.Wrapper title='Транспорт'>
         <TransportForm />
       </SC.Wrapper>
-      <SC.Wrapper>
+      <SC.Wrapper title='Отель'>
         <HotelsForm />
       </SC.Wrapper>
     </MultiStep>
