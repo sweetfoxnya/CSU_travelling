@@ -11,7 +11,7 @@ interface BaseSelectProps {
     width?: string,
 }
 
-export const BaseSelect = ({ options, width = '500px' }: BaseSelectProps) => {
+export const BaseSelect = ({options, width = '500px'}: BaseSelectProps) => {
     const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
 
     const handleChange = (selectedOption: OptionType | null) => {
@@ -26,13 +26,13 @@ export const BaseSelect = ({ options, width = '500px' }: BaseSelectProps) => {
     }
 
     return (
-            <Select
-                isClearable
-                isSearchable
-                options={options}
-                value={selectedOption}
-                onChange={handleChange}
-                styles={styles}
-            />
+        <Select
+            isClearable
+            isSearchable
+            options={options}
+            value={selectedOption}
+            onChange={handleChange}
+            styles={styles}
+        />
     );
 };
