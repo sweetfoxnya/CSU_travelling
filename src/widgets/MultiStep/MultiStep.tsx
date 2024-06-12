@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import MultiStep from 'react-multistep'
 
+import {CityForm} from "@features/CityForm";
+
 export const MultiStepForm = () => {
   const [activePage, setActivePage] = useState(0);
 
@@ -8,14 +10,9 @@ export const MultiStepForm = () => {
     <MultiStep
       activeStep={activePage}
     >
-      <form title='step 1'>
-        <label>name</label>
-        <input type='text'/>
-        <label>pass</label>
-        <input type='text'/>
+      <CityForm />
+      <form>
       </form>
-      <div title='step 2'>2</div>
-      <div title='step 3'>3</div>
     </MultiStep>
   );
 };

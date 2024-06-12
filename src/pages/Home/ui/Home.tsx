@@ -1,12 +1,13 @@
 import React from 'react';
 
 import {MultiStepForm} from "@widgets/MultiStep";
+import {Container} from "@shared";
 
 export const Home = () => {
   return (
-    <div>
+    <Container>
       Home
       <MultiStepForm />
-    </div>
+    </Container>
   );
 };
