@@ -23,7 +23,8 @@ export const CityForm = () => {
   const {
     register,
     handleSubmit,
-    formState: {errors}
+    setValue,
+    watch,
   } = useForm<CityFormProps>();
 
   const optionsFrom = mapCitiesToSelect(mockCities);
@@ -41,11 +42,15 @@ export const CityForm = () => {
             name='cityFrom'
             options={optionsFrom}
             register={register}
+            setValue={setValue}
+            watch={watch}
           />
           <Select<CitySelectModel>
             name='cityTo'
             options={optionsTo}
             register={register}
+            setValue={setValue}
+            watch={watch}
           />
           <button type='submit'>
             Submit

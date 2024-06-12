@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import Select from 'react-select'
+import React from 'react';
+import Select from 'react-select';
 
 interface OptionType {
     value: number,
@@ -8,16 +8,12 @@ interface OptionType {
 
 interface BaseSelectProps {
     options?: OptionType[];
-    width?: string,
+    width?: string;
+    value?: OptionType | null;
+    onChange?: (selectedOption: OptionType | null) => void;
 }
 
-export const BaseSelect = ({options, width = '500px'}: BaseSelectProps) => {
-    const [selectedOption, setSelectedOption] = useState<OptionType | null>(null);
-
-    const handleChange = (selectedOption: OptionType | null) => {
-        setSelectedOption(selectedOption);
-    };
-
+export const BaseSelect = ({options, value, onChange, width = '400px', ...rest}: BaseSelectProps) => {
     const styles = {
         container: (provided: any) => ({
             ...provided,
@@ -30,9 +26,10 @@ export const BaseSelect = ({options, width = '500px'}: BaseSelectProps) => {
             isClearable
             isSearchable
             options={options}
-            value={selectedOption}
-            onChange={handleChange}
+            value={value}
+            onChange={onChange}
             styles={styles}
+            {...rest}
         />
     );
 };

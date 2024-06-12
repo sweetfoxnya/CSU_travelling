@@ -8,6 +8,7 @@ export interface HotelModel {
   name: string;
 }
 
-export interface HotelSelectModel extends HotelModel {
-  value: string;
+export interface HotelSelectModel {
+  value: number;
+  label: string;
 }

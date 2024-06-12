@@ -7,6 +7,7 @@ export interface TransportModel {
   name: string;
 }
 
-export interface TransportSelectModel extends TransportModel {
-  value: string;
+export interface TransportSelectModel {
+  value: number;
+  label: string;
 }

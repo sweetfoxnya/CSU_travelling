@@ -23,6 +23,8 @@ export const TransportForm = () => {
   const {
     register,
     handleSubmit,
+    setValue,
+    watch,
     formState: {errors}
   } = useForm<TransportFormProps>();
 
@@ -40,6 +42,8 @@ export const TransportForm = () => {
             name='transport'
             options={optionsFrom}
             register={register}
+            setValue={setValue}
+            watch={watch}
           />
           <button type='submit'>
             Submit
