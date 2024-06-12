@@ -20,6 +20,7 @@
     "react-hook-form": "7.51.5",
     "react-multistep": "5.5.9",
     "react-router-dom": "6.23.1",
+    "react-select": "5.8.0",
     "styled-components": "6.1.11"
   },
   "devDependencies": {
