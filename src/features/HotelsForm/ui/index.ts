@@ -1,0 +1,1 @@
+export { HotelsForm } from './HotelsForm';
