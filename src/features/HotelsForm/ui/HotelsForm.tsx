@@ -23,6 +23,8 @@ export const HotelsForm = () => {
   const {
     register,
     handleSubmit,
+    setValue,
+    watch,
     formState: {errors}
   } = useForm<HotelsFormProps>();
 
@@ -40,6 +42,8 @@ export const HotelsForm = () => {
             name='hotel'
             options={options}
             register={register}
+            setValue={setValue}
+            watch={watch}
           />
           <button type='submit'>
             Submit

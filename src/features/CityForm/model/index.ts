@@ -8,6 +8,7 @@ export interface CityModel {
   city: string;
 }
 
-export interface CitySelectModel extends CityModel {
-  value: string;
+export interface CitySelectModel {
+  value: number;
+  label: string;
 }

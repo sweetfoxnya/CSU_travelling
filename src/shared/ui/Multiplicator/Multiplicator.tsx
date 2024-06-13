@@ -4,8 +4,8 @@ import {useFieldArray, useForm} from "react-hook-form";
 import {Select} from "../Select";
 
 interface SelectOption {
-  id: number;
-  value: string;
+  value: number;
+  label: string;
 }
 
 interface MultiplicatorProps<T extends SelectOption> {
@@ -18,12 +18,14 @@ interface MultiplicatorProps<T extends SelectOption> {
 
 export function Multiplicator<T extends SelectOption>({
   handleFormSubmit,
-  options
+  options,
 }: MultiplicatorProps<T>) {
   const {
     register,
     control,
     handleSubmit,
+    setValue,
+    watch,
   } = useForm();
 
   const {
@@ -44,6 +46,8 @@ export function Multiplicator<T extends SelectOption>({
               name={`array.${index}`}
               options={options}
               register={register}
+              setValue={setValue}
+              watch={watch}
             />
             <button type="button" onClick={() => remove(index)}>
               X

@@ -1,24 +1,34 @@
-import React, {ComponentPropsWithoutRef} from 'react';
+import React from 'react';
+import {UseFormRegister, UseFormSetValue, UseFormWatch} from "react-hook-form";
+
+import { BaseSelect } from "@shared";
 
 interface SelectOptionModel {
-  value: string;
-  id: number;
+  value: number;
+  label: string;
 }
 
-interface SelectProps<T extends SelectOptionModel> extends ComponentPropsWithoutRef<'select'> {
-  register: any,
+interface SelectProps<T extends SelectOptionModel> {
+  register: UseFormRegister<any>,
+  setValue: UseFormSetValue<any>,
+  watch: UseFormWatch<any>,
   options: Array<T>,
   name: string,
 }
 
-export function Select<T extends SelectOptionModel>({ register, options, name, ...rest }: SelectProps<T>) {
+export function Select<T extends SelectOptionModel>({ register, setValue, watch, options, name, ...rest }: SelectProps<T>) {
+  const selectedValue = watch(name);
+
+  const handleChange = (selectedOption: T | null) => {
+    setValue(name, selectedOption);
+  };
+
   return (
-    <select {...register(name)} {...rest}>
-      {options.map((value) => (
-        <option key={value.value} value={value.id}>
-          {value.value}
-        </option>
-      ))}
-    </select>
-  )
+      <BaseSelect
+          options={options}
+          value={selectedValue}
+          onChange={handleChange}
+          {...rest}
+      />
+  );
 }

@@ -4,4 +4,5 @@ export * from './Modal';
 export * from './Flex';
 export * from './Select';
 export * from './Container';
+export * from './BaseSelect';
 export * from './Multiplicator';
