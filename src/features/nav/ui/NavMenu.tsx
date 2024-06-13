@@ -17,6 +17,9 @@ export const NavMenu = () => {
       <SC.Link to='/profile'>
         Profile
       </SC.Link>
+      <SC.Link to='/excursions'>
+        Excursions
+      </SC.Link>
     </SC.Container>
   );
 };

@@ -1,9 +1,9 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import React from "react";
 
-import {Home, Login, Profile, Register} from "@pages";
+import {Header} from "@widgets/Header";
+import {Excursions, Home, Login, Profile, Register} from "@pages";
 import {MainLayout} from "@shared";
-import {Header} from "@widgets/Header/ui/Header";
 
 export const Router = () => (
   <BrowserRouter basename="/">
@@ -15,6 +15,7 @@ export const Router = () => (
         <Route path='register' element={<Register />} />
       </Route>
       <Route path='profile' element={<Profile />} />
+      <Route path='excursions' element={<Excursions />} />
     </Routes>
   </BrowserRouter>
 );
