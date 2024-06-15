@@ -6,9 +6,9 @@ export const Profile = () => {
       <SС.Container>
           <SС.Card>
               <SС.NavBar>
-                  <a> Главная</a>
-                  <a> Экскурсии </a>
-                  <a> Мяу</a>
+                  <SС.NavBarItem> Главная</SС.NavBarItem>
+                  <SС.NavBarItem> Экскурсии </SС.NavBarItem>
+                  <SС.NavBarItem> Мяу</SС.NavBarItem>
               </SС.NavBar>
               <SС.ProfileFrame>
                   <SС.Rectangle></SС.Rectangle>

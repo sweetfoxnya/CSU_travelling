@@ -1,9 +1,11 @@
 import styled from "styled-components";
 import profile from '@static/images/profile.png';
 import rec from '@static/images/rec.png';
+import {Color} from "@shared";
 
 export const Container = styled.div`
     background: rgba(0, 0, 0, .30) url(${profile});
+    background-size: cover;
     width: 100%;
     height: 740px;
     display: flex;
@@ -24,8 +26,15 @@ export const Card = styled.div`
 export const NavBar = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
     background-color: aliceblue;
+`;
+
+export const NavBarItem = styled.a`
+    font-family: Mont;
+    &:hover {
+        color: ${Color.Peach};
+    }
 `;
 
 export const ProfileFrame = styled.div`
@@ -51,7 +60,7 @@ export const Header = styled.div`
 export const Icon = styled.div`
     width: 93px;
     height: 93px;
-    background: rgba(0, 0, 0, .30) url(${profile});
+    background: rgba(0, 0, 0, .30) url(${rec});
     border-radius: 100px;
 `;
 
