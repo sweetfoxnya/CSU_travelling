@@ -19,7 +19,11 @@ const mockCities: CityModel[] = [
   },
 ];
 
-export const CityForm = () => {
+interface FormProps {
+  handleFormSubmit: (data: CityFormProps) => void;
+}
+
+export const CityForm = ({ handleFormSubmit }: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -32,6 +36,7 @@ export const CityForm = () => {
 
   const onSubmit: SubmitHandler<CityFormProps> = (data) => {
     console.log(data);
+    handleFormSubmit(data);
   }
 
   return (
@@ -53,7 +58,7 @@ export const CityForm = () => {
             watch={watch}
           />
           <button type='submit'>
-            Submit
+            Сохранить шаг
           </button>
         </SC.Wrapper>
       </Flex>

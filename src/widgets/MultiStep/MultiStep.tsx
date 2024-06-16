@@ -1,27 +1,59 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import MultiStep from 'react-multistep'
 
-import {CityForm} from "@features/CityForm";
-import {TransportForm} from "@features/TransportForm";
-import {HotelsForm} from "@features/HotelsForm";
+import {CityForm, CityFormProps} from "@features/CityForm";
+import {TransportForm, TransportFormProps} from "@features/TransportForm";
+import {HotelsForm, HotelsFormProps} from "@features/HotelsForm";
 
 import * as SC from './MultiStep.styles';
 
-export const MultiStepForm = () => {
+interface MultistepProps {
+  context: React.Context<any>;
+}
+
+export const MultiStepForm = ({ context }: MultistepProps) => {
   const [activePage, setActivePage] = useState(0);
+
+  const setData = useContext(context);
+
+  const handleCitySubmit = (data: CityFormProps) => {
+    setData((prev: any) => ({
+      ...prev,
+      city: data,
+    }));
+
+    setActivePage(1);
+  }
+
+  const handleTransportSubmit = (data: TransportFormProps) => {
+    setData((prev: any) => ({
+      ...prev,
+      transport: data,
+    }));
+
+    setActivePage(2);
+  }
+
+  const handleHotelSubmit = (data: HotelsFormProps) => {
+    setData((prev: any) => ({
+      ...prev,
+      hotel: data,
+    }));
+  }
 
   return (
     <MultiStep
       activeStep={activePage}
+      showNavigation={false}
     >
       <SC.Wrapper title='Город'>
-        <CityForm />
+        <CityForm handleFormSubmit={handleCitySubmit}/>
       </SC.Wrapper>
       <SC.Wrapper title='Транспорт'>
-        <TransportForm />
+        <TransportForm handleFormSubmit={handleTransportSubmit}/>
       </SC.Wrapper>
       <SC.Wrapper title='Отель'>
-        <HotelsForm />
+        <HotelsForm handleFormSubmit={handleHotelSubmit}/>
       </SC.Wrapper>
     </MultiStep>
   );

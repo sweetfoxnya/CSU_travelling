@@ -3,7 +3,7 @@ import {SubmitHandler, useForm} from "react-hook-form";
 
 import {Flex, Select} from "@shared";
 
-import {HotelsFormProps, HotelModel, HotelSelectModel} from "../model";
+import {HotelModel, HotelSelectModel, HotelsFormProps} from "../model";
 import {mapHotelsToSelect} from "../libs";
 
 import * as SC from './HotelsForm.styles';
@@ -19,7 +19,11 @@ const mockHotels: HotelModel[] = [
   },
 ];
 
-export const HotelsForm = () => {
+interface FormProps {
+  handleFormSubmit: (data: HotelsFormProps) => void;
+}
+
+export const HotelsForm = ({ handleFormSubmit }: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -32,6 +36,7 @@ export const HotelsForm = () => {
 
   const onSubmit: SubmitHandler<HotelsFormProps> = (data) => {
     console.log(data);
+    handleFormSubmit(data);
   }
 
   return (
@@ -46,7 +51,7 @@ export const HotelsForm = () => {
             watch={watch}
           />
           <button type='submit'>
-            Submit
+            Сохранить шаг
           </button>
         </SC.Wrapper>
       </Flex>

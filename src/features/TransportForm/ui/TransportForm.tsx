@@ -19,7 +19,11 @@ const mockTransport: TransportModel[] = [
   },
 ];
 
-export const TransportForm = () => {
+interface FormProps {
+  handleFormSubmit: (data: TransportFormProps) => void;
+}
+
+export const TransportForm = ({ handleFormSubmit }: FormProps) => {
   const {
     register,
     handleSubmit,
@@ -32,6 +36,7 @@ export const TransportForm = () => {
 
   const onSubmit: SubmitHandler<TransportFormProps> = (data) => {
     console.log(data);
+    handleFormSubmit(data);
   }
 
   return (
@@ -46,7 +51,7 @@ export const TransportForm = () => {
             watch={watch}
           />
           <button type='submit'>
-            Submit
+            Сохранить шаг
           </button>
         </SC.Wrapper>
       </Flex>
