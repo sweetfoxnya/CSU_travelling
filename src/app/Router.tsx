@@ -32,6 +32,7 @@ export const Router = () => (
       <Route path='excursions/events' element={<Events />} />
       <Route path='excursions/cityEvents' element={<CityEvents />} />
       <Route path='excursions/full' element={<Full />} />
+      <Route path='*' element={<h1>NOT FOUND(</h1>} />
     </Routes>
   </BrowserRouter>
 );
