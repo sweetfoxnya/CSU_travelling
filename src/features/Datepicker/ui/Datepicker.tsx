@@ -1,15 +1,18 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Base from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export const Datepicker = () => {
-  const [startDate, setStartDate] = useState(new Date());
+interface DatepickerProps {
+    selected: Date,
+    onChange: (date: Date) => void,
+}
 
-  const handleChange = (date: any) => {
-    console.log(date)
-  }
-
-  return (
-    <Base selected={startDate} onChange={handleChange} />
-  );
+export const Datepicker = ({selected, onChange}: DatepickerProps) => {
+    return (
+        <Base
+            dateFormat="dd.MM.yyyy"
+            selected={selected}
+            onChange={onChange}
+        />
+    );
 };
