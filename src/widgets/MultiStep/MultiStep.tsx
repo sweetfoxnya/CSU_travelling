@@ -4,12 +4,12 @@ import {CityFormProps} from "@features/CityForm";
 import {TransportFormProps} from "@features/TransportForm";
 import {HotelsFormProps} from "@features/HotelsForm";
 import {DateFormProps} from "@features/DateForm";
-import {Simple} from "@widgets/MultiStep/Simple";
-import {Iterable} from "@widgets/MultiStep/Iterable";
-import {Full} from "@widgets/MultiStep/Full";
-import {CityEvents} from "@widgets/MultiStep/CityEvents";
-import {Events} from "@widgets/MultiStep/Events";
 
+import {Simple} from "./Simple";
+import {Iterable} from "./Iterable";
+import {Full} from "./Full";
+import {CityEvents} from "./CityEvents";
+import {Events} from "./Events";
 import {Cases} from "./types";
 
 interface MultistepProps {
