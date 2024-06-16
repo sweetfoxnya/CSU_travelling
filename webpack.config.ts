@@ -47,7 +47,11 @@ export default (env: EnvVariables) => {
         {
           test: /\.png/,
           type: 'asset/resource',
-        }
+        },
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
+        },
       ]
     },
     resolve: {
