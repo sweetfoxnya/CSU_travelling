@@ -25,7 +25,7 @@ export default (env: EnvVariables) => {
       filename: '[name].[contenthash].js',
       // to delete old builds
       clean: true,
-      publicPath: 'auto'
+      publicPath: '/'
     },
     plugins: [
       // plugin for creating build html using own html
