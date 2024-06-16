@@ -1,45 +1,16 @@
-import React, {createContext, useMemo, useState} from 'react';
+import React, {createContext} from 'react';
 
 import {MultiStepForm} from "@widgets/MultiStep";
-import {Container} from "@shared";
-
-import {ExcursionModel} from "../model";
-
-import * as SC from "./ExcursionIterable.styles";
+import {useStore} from "@shared/hooks";
 
 const Context = createContext({});
 
 export const ExcursionIterable = () => {
-  const [data, setData] = useState<ExcursionModel | null>(null);
-  const [dataArray, setDataArray] = useState<ExcursionModel[]>([]);
-
-  const isFinish = useMemo(() => Boolean(
-    data && data.city && data.transport && data.hotel
-  ), [data]);
-
-  const handleIterationSubmit = () => {
-    setDataArray((prev) => [
-      ...prev,
-      data
-    ]);
-
-    setData(null);
-  }
+  const { iterable: { setData } } = useStore();
 
   return (
-    <Context.Provider value={setData}>
-      <Container>
-        <SC.Wrapper>
-          <MultiStepForm context={Context} multiStepCase='iterable'/>
-          {isFinish && (
-            <button
-              onClick={handleIterationSubmit}
-            >
-              Сохранить данные
-            </button>
-          )}
-        </SC.Wrapper>
-      </Container>
-    </Context.Provider>
+      <Context.Provider value={setData}>
+        <MultiStepForm context={Context} multiStepCase='iterable' />
+      </Context.Provider>
   );
 };

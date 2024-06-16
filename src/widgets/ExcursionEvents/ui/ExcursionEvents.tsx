@@ -1,9 +1,16 @@
-import React from 'react';
+import React, {createContext} from 'react';
+
+import {MultiStepForm} from "@widgets/MultiStep";
+import {useStore} from "@shared/hooks";
+
+const Context = createContext({});
 
 export const ExcursionEvents = () => {
-  return (
-    <div>
+  const { events: { setData } } = useStore();
 
-    </div>
+  return (
+      <Context.Provider value={setData}>
+        <MultiStepForm context={Context} multiStepCase='events' />
+      </Context.Provider>
   );
 };
