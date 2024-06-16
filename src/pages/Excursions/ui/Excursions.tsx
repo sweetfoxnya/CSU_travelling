@@ -8,31 +8,27 @@ import {ExcursionEvents} from "@widgets/ExcursionEvents";
 import {Container} from "@shared";
 
 import * as SC from './Excursions.styles';
+import {Link} from "react-router-dom";
 
 export const Excursions = () => {
   return (
     <Container>
       <SC.Wrapper>
-        <p>
+        <Link to='simple'>
           1 юзкейс
-        </p>
-        <ExcursionSimple/>
-        <p>
+        </Link>
+        <Link to='/excursions/iterable'>
           2 юзкейс
-        </p>
-        <ExcursionIterable/>
-        <p>
+        </Link>
+        <Link to='/excursions/full'>
           3 юзкейс
-        </p>
-        <ExcursionFull/>
-        <p>
+        </Link>
+        <Link to='/excursions/events'>
           4 юзкейс
-        </p>
-        <ExcursionCityEvents/>
-        <p>
+        </Link>
+        <Link to='/excursions/cityEvents'>
           5 юзкейс
-        </p>
-        <ExcursionEvents/>
+        </Link>
       </SC.Wrapper>
     </Container>
   );
