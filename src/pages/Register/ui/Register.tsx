@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
-import {useMutation, useQuery} from "@tanstack/react-query";
+import {useMutation} from "@tanstack/react-query";
 
 import {RegisterForm, RegisterType} from "@features/auth";
 
