@@ -4,6 +4,7 @@ import MultiStep from 'react-multistep'
 import {CityForm, CityFormProps} from "@features/CityForm";
 import {TransportForm, TransportFormProps} from "@features/TransportForm";
 import {HotelsForm, HotelsFormProps} from "@features/HotelsForm";
+import {Datepicker} from "@features/Datepicker";
 
 import {Cases} from "./types";
 
@@ -47,6 +48,9 @@ export const MultiStepForm = ({context, multiStepCase }: MultistepProps) => {
           activeStep={activePage}
           showNavigation={false}
         >
+          <SC.Wrapper>
+            <Datepicker />
+          </SC.Wrapper>
           <SC.Wrapper title='Город'>
             <CityForm handleFormSubmit={handleCitySubmit}/>
           </SC.Wrapper>
