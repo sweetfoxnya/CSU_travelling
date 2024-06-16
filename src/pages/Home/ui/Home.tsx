@@ -1,7 +1,7 @@
 import React from 'react';
 import {observer} from "mobx-react";
 
-import {Container} from "@shared";
+import {Container, EventCard} from "@shared";
 import {useStore} from "@shared/hooks";
 
 export const Home = observer(() => {
@@ -12,13 +12,7 @@ export const Home = observer(() => {
   console.log(data);
   return (
     <Container>
-      Home
-      <button onClick={() => {
-        // @ts-ignore
-        setData({ transport: 1 })
-      }}>
-        click
-      </button>
+      <EventCard id={1} title={'title'} text={'Tetxt'} cityCode={'174'} dateStart={'17.06.24'} dateEnd={'17.06.24'} />
     </Container>
   );
 });
