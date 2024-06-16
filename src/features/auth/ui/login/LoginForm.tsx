@@ -7,10 +7,14 @@ import {Input} from "@shared";
 import {LoginType} from "../../model";
 import * as SC from './LoginForm.styles';
 
-export const LoginForm = () => {
+interface LoginProps {
+  handleFormSubmit: (data: LoginType) => void;
+}
+
+export const LoginForm = ({ handleFormSubmit }: LoginProps) => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm<LoginType>();
   const onSubmit: SubmitHandler<LoginType> = (data) => {
-    console.log(data);
+    handleFormSubmit(data);
   }
 
   const [isShownPass, setIsShownPass] = useState(false);
@@ -22,7 +26,7 @@ export const LoginForm = () => {
           <Input
             type='text'
             placeholder='Email'
-            {...register('email')}
+            {...register('login')}
           />
           <SC.Horizon>
             <Input
