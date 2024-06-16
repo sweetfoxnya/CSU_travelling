@@ -5,13 +5,16 @@ import {CityForm, CityFormProps} from "@features/CityForm";
 import {TransportForm, TransportFormProps} from "@features/TransportForm";
 import {HotelsForm, HotelsFormProps} from "@features/HotelsForm";
 
+import {Cases} from "./types";
+
 import * as SC from './MultiStep.styles';
 
 interface MultistepProps {
   context: React.Context<any>;
+  multiStepCase: Cases
 }
 
-export const MultiStepForm = ({ context }: MultistepProps) => {
+export const MultiStepForm = ({context, multiStepCase }: MultistepProps) => {
   const [activePage, setActivePage] = useState(0);
 
   const setData = useContext(context);
@@ -21,8 +24,6 @@ export const MultiStepForm = ({ context }: MultistepProps) => {
       ...prev,
       city: data,
     }));
-
-    setActivePage(1);
   }
 
   const handleTransportSubmit = (data: TransportFormProps) => {
@@ -30,8 +31,6 @@ export const MultiStepForm = ({ context }: MultistepProps) => {
       ...prev,
       transport: data,
     }));
-
-    setActivePage(2);
   }
 
   const handleHotelSubmit = (data: HotelsFormProps) => {
@@ -41,20 +40,92 @@ export const MultiStepForm = ({ context }: MultistepProps) => {
     }));
   }
 
-  return (
-    <MultiStep
-      activeStep={activePage}
-      showNavigation={false}
-    >
-      <SC.Wrapper title='Город'>
-        <CityForm handleFormSubmit={handleCitySubmit}/>
-      </SC.Wrapper>
-      <SC.Wrapper title='Транспорт'>
-        <TransportForm handleFormSubmit={handleTransportSubmit}/>
-      </SC.Wrapper>
-      <SC.Wrapper title='Отель'>
-        <HotelsForm handleFormSubmit={handleHotelSubmit}/>
-      </SC.Wrapper>
-    </MultiStep>
-  );
+  switch (multiStepCase) {
+    case 'simple':
+      return (
+        <MultiStep
+          activeStep={activePage}
+          showNavigation={false}
+        >
+          <SC.Wrapper title='Город'>
+            <CityForm handleFormSubmit={handleCitySubmit}/>
+          </SC.Wrapper>
+          <SC.Wrapper title='Транспорт'>
+            <TransportForm handleFormSubmit={handleTransportSubmit}/>
+          </SC.Wrapper>
+        </MultiStep>
+      );
+
+    case 'iterable':
+      return (
+        <MultiStep
+          activeStep={activePage}
+          showNavigation={false}
+        >
+          <SC.Wrapper title='Город'>
+            <CityForm handleFormSubmit={handleCitySubmit}/>
+          </SC.Wrapper>
+          <SC.Wrapper title='Транспорт'>
+            <TransportForm handleFormSubmit={handleTransportSubmit}/>
+          </SC.Wrapper>
+          <SC.Wrapper title='Отель'>
+            <HotelsForm handleFormSubmit={handleHotelSubmit}/>
+          </SC.Wrapper>
+        </MultiStep>
+      );
+
+    case 'full':
+      // return (
+      //   <MultiStep
+      //     activeStep={activePage}
+      //     showNavigation={false}
+      //   >
+      //     <SC.Wrapper title='Город'>
+      //       <CityForm handleFormSubmit={handleCitySubmit}/>
+      //     </SC.Wrapper>
+      //     <SC.Wrapper title='Транспорт'>
+      //       <TransportForm handleFormSubmit={handleTransportSubmit}/>
+      //     </SC.Wrapper>
+      //     <SC.Wrapper title='Отель'>
+      //       <HotelsForm handleFormSubmit={handleHotelSubmit}/>
+      //     </SC.Wrapper>
+      //   </MultiStep>
+      // );
+
+    case 'cityEvents':
+      // return (
+      //   <MultiStep
+      //     activeStep={activePage}
+      //     showNavigation={false}
+      //   >
+      //     <SC.Wrapper title='Город'>
+      //       <CityForm handleFormSubmit={handleCitySubmit}/>
+      //     </SC.Wrapper>
+      //     <SC.Wrapper title='Транспорт'>
+      //       <TransportForm handleFormSubmit={handleTransportSubmit}/>
+      //     </SC.Wrapper>
+      //     <SC.Wrapper title='Отель'>
+      //       <HotelsForm handleFormSubmit={handleHotelSubmit}/>
+      //     </SC.Wrapper>
+      //   </MultiStep>
+      // );
+
+    case 'events':
+      // return (
+      //   <MultiStep
+      //     activeStep={activePage}
+      //     showNavigation={false}
+      //   >
+      //     <SC.Wrapper title='Город'>
+      //       <CityForm handleFormSubmit={handleCitySubmit}/>
+      //     </SC.Wrapper>
+      //     <SC.Wrapper title='Транспорт'>
+      //       <TransportForm handleFormSubmit={handleTransportSubmit}/>
+      //     </SC.Wrapper>
+      //     <SC.Wrapper title='Отель'>
+      //       <HotelsForm handleFormSubmit={handleHotelSubmit}/>
+      //     </SC.Wrapper>
+      //   </MultiStep>
+      // );
+  }
 };

@@ -31,7 +31,7 @@ export const ExcursionIterable = () => {
     <Context.Provider value={setData}>
       <Container>
         <SC.Wrapper>
-          <MultiStepForm context={Context}/>
+          <MultiStepForm context={Context} multiStepCase='iterable'/>
           {isFinish && (
             <button
               onClick={handleIterationSubmit}
