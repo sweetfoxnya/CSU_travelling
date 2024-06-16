@@ -25,5 +25,7 @@ export const instance = axios.create({
   baseURL: API_PATH,
   headers: new AxiosHeaders({
     'token': token,
+    "Access-Control-Allow-Origin": "*",
+    "Content-Type": "application/json",
   })
 })

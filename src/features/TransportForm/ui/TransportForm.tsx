@@ -5,6 +5,7 @@ import {Flex, Select} from "@shared";
 
 import {TransportFormProps, TransportModel, TransportSelectModel} from "../model";
 import {mapCitiesToSelect} from "../libs";
+import {useCityEvents} from "../api";
 
 import * as SC from './TransportForm.styles';
 
@@ -32,7 +33,21 @@ export const TransportForm = ({ handleFormSubmit }: FormProps) => {
     formState: {errors}
   } = useForm<TransportFormProps>();
 
-  const optionsFrom = mapCitiesToSelect(mockTransport);
+  const { data, isPending, isError } = useCityEvents();
+
+  if (isPending) {
+    return <p>
+      loading
+    </p>
+  }
+
+  if (isError) {
+    return <p>
+      error(
+    </p>
+  }
+
+  const options = mapCitiesToSelect(data);
 
   const onSubmit: SubmitHandler<TransportFormProps> = (data) => {
     console.log(data);
@@ -45,7 +60,7 @@ export const TransportForm = ({ handleFormSubmit }: FormProps) => {
         <SC.Wrapper>
           <Select<TransportSelectModel>
             name='transport'
-            options={optionsFrom}
+            options={options}
             register={register}
             setValue={setValue}
             watch={watch}
