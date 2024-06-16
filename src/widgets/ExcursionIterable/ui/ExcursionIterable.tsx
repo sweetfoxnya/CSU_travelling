@@ -26,7 +26,6 @@ export const ExcursionIterable = () => {
     setData(null);
   }
 
-
   return (
     <Context.Provider value={setData}>
       <Container>
