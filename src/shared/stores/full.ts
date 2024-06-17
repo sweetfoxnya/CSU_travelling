@@ -10,6 +10,9 @@ export class FullExcursion {
     }
 
     setData = (data: Partial<ExcursionFull>) => {
-        this.data = data;
+        this.data = {
+            ...this.data,
+            ...data
+        };
     }
 }
