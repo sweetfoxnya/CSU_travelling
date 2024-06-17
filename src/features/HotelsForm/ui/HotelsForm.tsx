@@ -20,7 +20,7 @@ const mockHotels: HotelModel[] = [
 ];
 
 interface FormProps {
-  handleFormSubmit: (data: HotelsFormProps) => void;
+  handleFormSubmit: (data: HotelModel) => void;
 }
 
 export const HotelsForm = ({ handleFormSubmit }: FormProps) => {
@@ -34,9 +34,8 @@ export const HotelsForm = ({ handleFormSubmit }: FormProps) => {
 
   const options = mapHotelsToSelect(mockHotels);
 
-  const onSubmit: SubmitHandler<HotelsFormProps> = (data) => {
-    console.log(data);
-    handleFormSubmit(data);
+  const onSubmit: SubmitHandler<HotelsFormProps> = ({ hotel }) => {
+    handleFormSubmit(hotel);
   }
 
   return (

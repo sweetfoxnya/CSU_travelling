@@ -2,16 +2,16 @@ import React from 'react';
 import MultiStep from "react-multistep";
 
 import {CityForm, CityFormProps} from "@features/CityForm";
-import {TransportForm, TransportFormProps} from "@features/TransportForm";
-import {HotelsForm, HotelsFormProps} from "@features/HotelsForm";
+import {TransportForm, TransportModel} from "@features/TransportForm";
+import {HotelModel, HotelsForm} from "@features/HotelsForm";
 
 import * as SC from "./Full.styles";
 
 interface FullProps {
     activePage: number,
     handleCitySubmit: (data: CityFormProps) => void;
-    handleTransportSubmit: (data: TransportFormProps) => void;
-    handleHotelSubmit: (data: HotelsFormProps) => void;
+    handleTransportSubmit: (data: TransportModel) => void;
+    handleHotelSubmit: (data: HotelModel) => void;
 }
 
 export const Full = ({activePage, handleCitySubmit, handleTransportSubmit, handleHotelSubmit}: FullProps) => {

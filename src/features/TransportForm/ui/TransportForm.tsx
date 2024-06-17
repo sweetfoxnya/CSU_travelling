@@ -21,7 +21,7 @@ const mockTransport: TransportModel[] = [
 ];
 
 interface FormProps {
-  handleFormSubmit: (data: TransportFormProps) => void;
+  handleFormSubmit: (data: TransportModel) => void;
 }
 
 export const TransportForm = ({ handleFormSubmit }: FormProps) => {
@@ -50,9 +50,8 @@ export const TransportForm = ({ handleFormSubmit }: FormProps) => {
 
   const options = mapCitiesToSelect(mockTransport);
 
-  const onSubmit: SubmitHandler<TransportFormProps> = (data) => {
-    console.log(data);
-    handleFormSubmit(data);
+  const onSubmit: SubmitHandler<TransportFormProps> = ({ transport }) => {
+    handleFormSubmit(transport);
   }
 
   return (

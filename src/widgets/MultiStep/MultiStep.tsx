@@ -1,8 +1,8 @@
 import React, {useContext, useState} from 'react';
 
 import {CityFormProps} from "@features/CityForm";
-import {TransportFormProps} from "@features/TransportForm";
-import {HotelsFormProps} from "@features/HotelsForm";
+import {TransportModel} from "@features/TransportForm";
+import {HotelModel} from "@features/HotelsForm";
 import {DateFormProps} from "@features/DateForm";
 
 import {Simple} from "./Simple";
@@ -33,20 +33,18 @@ export const MultiStepForm = ({context, multiStepCase}: MultistepProps) => {
   }
 
   const handleCitySubmit = (data: CityFormProps) => {
-    console.log('handleCitySubmit', data);
-
     setData({
       city: data,
     });
   }
 
-  const handleTransportSubmit = (data: TransportFormProps) => {
+  const handleTransportSubmit = (data: TransportModel) => {
     setData({
       transport: data,
     });
   }
 
-  const handleHotelSubmit = (data: HotelsFormProps) => {
+  const handleHotelSubmit = (data: HotelModel) => {
     setData({
       hotel: data,
     });
@@ -76,6 +74,7 @@ export const MultiStepForm = ({context, multiStepCase}: MultistepProps) => {
           handleCitySubmit={handleCitySubmit}
           handleTransportSubmit={handleTransportSubmit}
           handleHotelSubmit={handleHotelSubmit}
+          handleSubmit={handleSubmit}
         />
       );
 

@@ -3,7 +3,7 @@ import {API_PATH} from "@shared";
 import {RegisterType} from "@features/auth";
 
 const instance = axios.create({
-  baseURL: API_PATH,
+  baseURL: API_PATH + '/auth',
 })
 
 export const register = ({email, password}: RegisterType) => {

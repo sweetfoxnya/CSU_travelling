@@ -1,6 +1,5 @@
 export interface HotelsFormProps {
-  cityFrom: HotelModel;
-  cityTo: HotelModel;
+  hotel: HotelModel;
 }
 
 export interface HotelModel {
