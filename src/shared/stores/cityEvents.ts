@@ -9,7 +9,13 @@ export class CityEventsExcursion {
         makeAutoObservable(this);
     }
 
-    setData = (data: Partial<ExcursionCityEvents>) => {
-        this.data = data;
+    public setData = (data: Partial<ExcursionCityEvents>) => {
+        console.log('params data', {...data})
+        console.log('stores data', {...this.data})
+
+        this.data = {
+            ...this.data,
+            ...data
+        };
     }
 }

@@ -1,43 +1,20 @@
-import {CityModel} from "@features/CityForm";
-import {TransportModel} from "@features/TransportForm";
-import {HotelModel} from "@features/HotelsForm";
-import {EventModel} from "@features/EventsForm";
+import {instance} from "@shared/libs";
+import {API_PATH} from "@shared";
 
-export interface ExcursionSimple {
-    city: {
-        cityFrom: CityModel,
-        cityTo: CityModel,
-    },
-    transport: TransportModel,
+export const sendSimple = (data: any) => {
+  return instance.post(API_PATH + '/api/ui_root', data);
 }
 
-export interface ExcursionIterable {
-    city: {
-        cityFrom: CityModel,
-        cityTo: CityModel,
-    },
-    transport: TransportModel,
-    hotel: HotelModel,
+export const sendIterable = (data: any) => {
+  return instance.post(API_PATH + '/api/ui_root', data);
 }
 
-export interface ExcursionEvents {
-    events: EventModel[],
+export const sendFull = (data: any) => {
+  return instance.post(API_PATH + '/api/ui_root', data);
 }
 
-export interface ExcursionCityEvents {
-    city: {
-        cityFrom: CityModel,
-        cityTo: CityModel,
-    },
-    events: EventModel[],
-}
 
-export interface ExcursionFull {
-    city: {
-        cityFrom: CityModel,
-        cityTo: CityModel,
-    },
-    transport: TransportModel,
-    hotel: HotelModel,
-    events: EventModel[],
+
+export const sendCityEvents = (data: any) => {
+  return instance.post(API_PATH + '/api/ui_root', data);
 }

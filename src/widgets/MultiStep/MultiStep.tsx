@@ -11,94 +11,102 @@ import {Full} from "./Full";
 import {CityEvents} from "./CityEvents";
 import {Events} from "./Events";
 import {Cases} from "./types";
+import {EventsFormProps} from "@features/EventsForm";
 
 interface MultistepProps {
-    context: React.Context<any>;
-    multiStepCase: Cases
+  context: React.Context<any>;
+  multiStepCase: Cases
 }
 
 export const MultiStepForm = ({context, multiStepCase}: MultistepProps) => {
-    const [activePage, setActivePage] = useState(0);
+  const [activePage, setActivePage] = useState(0);
 
-    const setData = useContext(context);
+  const {
+    setData,
+    handleSubmit
+  } = useContext(context);
 
-    const handleDateSubmit = (data: DateFormProps) => {
-        setData((prev: any) => ({
-            ...prev,
-            date: data,
-        }));
-    }
+  const handleDateSubmit = (data: DateFormProps) => {
+    setData({
+      date: data,
+    });
+  }
 
-    const handleCitySubmit = (data: CityFormProps) => {
-        setData((prev: any) => ({
-            ...prev,
-            city: data,
-        }));
-    }
+  const handleCitySubmit = (data: CityFormProps) => {
+    console.log('handleCitySubmit', data);
 
-    const handleTransportSubmit = (data: TransportFormProps) => {
-        setData((prev: any) => ({
-            ...prev,
-            transport: data,
-        }));
-    }
+    setData({
+      city: data,
+    });
+  }
 
-    const handleHotelSubmit = (data: HotelsFormProps) => {
-        setData((prev: any) => ({
-            ...prev,
-            hotel: data,
-        }));
-    }
+  const handleTransportSubmit = (data: TransportFormProps) => {
+    setData({
+      transport: data,
+    });
+  }
 
-    switch (multiStepCase) {
-        case 'simple':
-            return (
-                <Simple
-                    activePage={activePage}
-                    handleDateSubmit={handleDateSubmit}
-                    handleCitySubmit={handleCitySubmit}
-                    handleTransportSubmit={handleTransportSubmit}
-                />
-            );
+  const handleHotelSubmit = (data: HotelsFormProps) => {
+    setData({
+      hotel: data,
+    });
+  }
 
-        case 'iterable':
-            return (
-                <Iterable
-                    activePage={activePage}
-                    handleCitySubmit={handleCitySubmit}
-                    handleTransportSubmit={handleTransportSubmit}
-                    handleHotelSubmit={handleHotelSubmit}
-                />
-            );
+  const handleEventsSubmit = (data: EventsFormProps) => {
+    setData({
+      events: data,
+    });
+  }
 
-        case 'full':
-            return (
-                <Full
-                    activePage={activePage}
-                    handleCitySubmit={handleCitySubmit}
-                    handleTransportSubmit={handleTransportSubmit}
-                    handleHotelSubmit={handleHotelSubmit}
-                />
-            );
+  switch (multiStepCase) {
+    case 'simple':
+      return (
+        <Simple
+          activePage={activePage}
+          handleDateSubmit={handleDateSubmit}
+          handleCitySubmit={handleCitySubmit}
+          handleTransportSubmit={handleTransportSubmit}
+        />
+      );
 
-        case 'cityEvents':
-            return (
-                <CityEvents
-                    activePage={activePage}
-                    handleCitySubmit={handleCitySubmit}
-                    handleTransportSubmit={handleTransportSubmit}
-                    handleHotelSubmit={handleHotelSubmit}
-                />
-            );
+    case 'iterable':
+      return (
+        <Iterable
+          activePage={activePage}
+          handleCitySubmit={handleCitySubmit}
+          handleTransportSubmit={handleTransportSubmit}
+          handleHotelSubmit={handleHotelSubmit}
+        />
+      );
 
-        case 'events':
-            return (
-                <Events
-                    activePage={activePage}
-                    handleCitySubmit={handleCitySubmit}
-                    handleTransportSubmit={handleTransportSubmit}
-                    handleHotelSubmit={handleHotelSubmit}
-                />
-            );
-    }
+    case 'full':
+      return (
+        <Full
+          activePage={activePage}
+          handleCitySubmit={handleCitySubmit}
+          handleTransportSubmit={handleTransportSubmit}
+          handleHotelSubmit={handleHotelSubmit}
+        />
+      );
+
+    case 'cityEvents':
+      return (
+        <CityEvents
+          activePage={activePage}
+          handleCitySubmit={handleCitySubmit}
+          handleEventsSubmit={handleEventsSubmit}
+          handleSubmit={handleSubmit}
+        />
+      );
+
+    case 'events':
+      return (
+        <Events
+          activePage={activePage}
+          handleCitySubmit={handleCitySubmit}
+          handleTransportSubmit={handleTransportSubmit}
+          handleHotelSubmit={handleHotelSubmit}
+        />
+      );
+  }
 };

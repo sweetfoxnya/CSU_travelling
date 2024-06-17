@@ -6,11 +6,11 @@ import {useStore} from "@shared/hooks";
 const Context = createContext({});
 
 export const ExcursionEvents = () => {
-  const { events: { setData } } = useStore();
+  const {events: {setData}} = useStore();
 
   return (
-      <Context.Provider value={setData}>
-        <MultiStepForm context={Context} multiStepCase='events' />
-      </Context.Provider>
+    <Context.Provider value={setData}>
+      <MultiStepForm context={Context} multiStepCase='events'/>
+    </Context.Provider>
   );
 };

@@ -15,19 +15,19 @@ export const Excursions = () => {
     <Container>
       <SC.Wrapper>
         <Link to='simple'>
-          1 юзкейс
+          1 юзкейс(simple)
         </Link>
         <Link to='/excursions/iterable'>
-          2 юзкейс
+          2 юзкейс(iterable)
         </Link>
         <Link to='/excursions/full'>
-          3 юзкейс
+          3 юзкейс(full)
         </Link>
         <Link to='/excursions/events'>
-          4 юзкейс
+          4 юзкейс(events)
         </Link>
         <Link to='/excursions/cityEvents'>
-          5 юзкейс
+          5 юзкейс(cityEvents)
         </Link>
       </SC.Wrapper>
     </Container>

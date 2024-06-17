@@ -8,7 +8,7 @@ import {mapEventsToSelect} from "../libs";
 
 import * as SC from './EventsForm.styles';
 
-const mockHotels: EventModel[] = [
+const mockEvents: EventModel[] = [
   {
     id: 0,
     name: 'Вечеринка'
@@ -32,11 +32,11 @@ export const EventsForm = ({ handleFormSubmit }: FormProps) => {
     formState: {errors}
   } = useForm<EventsFormProps>();
 
-  const options = mapEventsToSelect(mockHotels);
+  const options = mapEventsToSelect(mockEvents);
 
   const onSubmit: SubmitHandler<EventsFormProps> = (data) => {
-    console.log(data);
-    handleFormSubmit(data);
+    // @ts-ignore
+    handleFormSubmit([data.events]);
   }
 
   return (
@@ -44,7 +44,7 @@ export const EventsForm = ({ handleFormSubmit }: FormProps) => {
       <Flex direction='column'>
         <SC.Wrapper>
           <Select<EventSelectModel>
-            name='hotel'
+            name='events'
             options={options}
             register={register}
             setValue={setValue}

@@ -33,21 +33,22 @@ export const TransportForm = ({ handleFormSubmit }: FormProps) => {
     formState: {errors}
   } = useForm<TransportFormProps>();
 
-  const { data, isPending, isError } = useCityEvents();
+  // TODO тут вернуть, когда будет бэк
+  // const { data, isPending, isError } = useCityEvents();
+  //
+  // if (isPending) {
+  //   return <p>
+  //     loading
+  //   </p>
+  // }
+  //
+  // if (isError) {
+  //   return <p>
+  //     error(
+  //   </p>
+  // }
 
-  if (isPending) {
-    return <p>
-      loading
-    </p>
-  }
-
-  if (isError) {
-    return <p>
-      error(
-    </p>
-  }
-
-  const options = mapCitiesToSelect(data);
+  const options = mapCitiesToSelect(mockTransport);
 
   const onSubmit: SubmitHandler<TransportFormProps> = (data) => {
     console.log(data);
