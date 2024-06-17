@@ -1,34 +1,60 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import MultiStep from "react-multistep";
+import {observer} from "mobx-react";
 
-import {CityForm, CityFormProps} from "@features/CityForm";
-import {TransportForm, TransportModel} from "@features/TransportForm";
-import {HotelModel, HotelsForm} from "@features/HotelsForm";
+import {DateForm, DateFormProps} from "@features/DateForm";
+import {EventsForm, EventsFormProps} from "@features/EventsForm";
+import {ExcursionSimple} from "@widgets/MultiStep";
+import {useStore} from "@shared/hooks";
 
 import * as SC from "./Events.styles";
 
 interface EventsProps {
     activePage: number,
-    handleCitySubmit: (data: CityFormProps) => void;
-    handleTransportSubmit: (data: TransportModel) => void;
-    handleHotelSubmit: (data: HotelModel) => void;
+    handleEventsSubmit: (data: EventsFormProps) => void;
+    handleDateSubmit: (data: DateFormProps) => void;
+    handleSubmit: (data: ExcursionSimple) => void;
 }
 
-export const Events = ({activePage, handleCitySubmit, handleTransportSubmit, handleHotelSubmit}: EventsProps) => {
+export const Events = observer(({
+ activePage,
+ handleDateSubmit,
+ handleEventsSubmit,
+ handleSubmit,
+}: EventsProps) => {
+    const { events: {
+        data,
+    }} = useStore();
+
+    console.log('store data', {...data})
+
+    const isFinish = useMemo(() => {
+        return Boolean(data && data.date && data.events)
+    }, [data]);
+
     return (
-        <MultiStep
-            activeStep={activePage}
-            showNavigation={false}
-        >
-            <SC.Wrapper>
-                <CityForm handleFormSubmit={handleCitySubmit}/>
-            </SC.Wrapper>
-            <SC.Wrapper title='Город'>
-                <TransportForm handleFormSubmit={handleTransportSubmit}/>
-            </SC.Wrapper>
-            <SC.Wrapper title='Транспорт'>
-                <HotelsForm handleFormSubmit={handleHotelSubmit}/>
-            </SC.Wrapper>
-        </MultiStep>
-    );
-};
+       <>
+           <MultiStep
+               activeStep={activePage}
+               showNavigation={false}
+           >
+               <SC.Wrapper title='Дата'>
+                   <DateForm handleFormSubmit={handleDateSubmit}/>
+               </SC.Wrapper>
+               <SC.Wrapper title='События'>
+                   <EventsForm handleFormSubmit={handleEventsSubmit}/>
+               </SC.Wrapper>
+           </MultiStep>
+           <button
+               disabled={!isFinish}
+               onClick={() => {
+                   if (isFinish) {
+                       // @ts-ignore
+                       handleSubmit(data)
+                   }
+               }}
+           >
+               Отправить на бронь!
+           </button>
+       </>
+)});

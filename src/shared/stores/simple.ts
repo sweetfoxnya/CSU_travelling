@@ -10,6 +10,12 @@ export class SimpleExcursion {
     }
 
     setData = (data: Partial<ExcursionSimple>) => {
-        this.data = data;
+        console.log('params data', {...data})
+        console.log('stores data', {...this.data})
+
+        this.data = {
+            ...this.data,
+            ...data
+        };
     }
 }
