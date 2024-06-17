@@ -4,6 +4,7 @@ import {CityFormProps} from "@features/CityForm";
 import {TransportModel} from "@features/TransportForm";
 import {HotelModel} from "@features/HotelsForm";
 import {DateFormProps} from "@features/DateForm";
+import {EventsFormProps} from "@features/EventsForm";
 
 import {Simple} from "./Simple";
 import {Iterable} from "./Iterable";
@@ -11,7 +12,6 @@ import {Full} from "./Full";
 import {CityEvents} from "./CityEvents";
 import {Events} from "./Events";
 import {Cases} from "./types";
-import {EventsFormProps} from "@features/EventsForm";
 
 interface MultistepProps {
   context: React.Context<any>;
@@ -64,6 +64,7 @@ export const MultiStepForm = ({context, multiStepCase}: MultistepProps) => {
           handleDateSubmit={handleDateSubmit}
           handleCitySubmit={handleCitySubmit}
           handleTransportSubmit={handleTransportSubmit}
+          handleSubmit={handleSubmit}
         />
       );
 
@@ -102,9 +103,9 @@ export const MultiStepForm = ({context, multiStepCase}: MultistepProps) => {
       return (
         <Events
           activePage={activePage}
-          handleCitySubmit={handleCitySubmit}
-          handleTransportSubmit={handleTransportSubmit}
-          handleHotelSubmit={handleHotelSubmit}
+          handleDateSubmit={handleDateSubmit}
+          handleEventsSubmit={handleEventsSubmit}
+          handleSubmit={handleSubmit}
         />
       );
   }
