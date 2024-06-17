@@ -7,6 +7,7 @@ import {CityForm, CityFormProps} from "@features/CityForm";
 import {TransportForm, TransportModel} from "@features/TransportForm";
 import {HotelModel, HotelsForm} from "@features/HotelsForm";
 import {useStore} from "@shared/hooks";
+import {Button} from "@shared";
 
 import * as SC from "./Iterable.styles";
 
@@ -34,7 +35,7 @@ export const Iterable = observer(({
   }, [data]);
 
   return (
-    <>
+    <SC.Container>
       <MultiStep
         activeStep={activePage}
         showNavigation={false}
@@ -49,7 +50,7 @@ export const Iterable = observer(({
           <HotelsForm handleFormSubmit={handleHotelSubmit}/>
         </SC.Wrapper>
       </MultiStep>
-      <button
+      <Button
         disabled={!isFinish}
         onClick={() => {
           if (isFinish) {
@@ -59,7 +60,7 @@ export const Iterable = observer(({
         }}
       >
         Отправить на бронь!
-      </button>
-    </>
+      </Button>
+    </SC.Container>
   );
 })
