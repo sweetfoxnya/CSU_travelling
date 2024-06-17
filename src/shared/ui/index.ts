@@ -7,3 +7,4 @@ export * from './Container';
 export * from './BaseSelect';
 export * from './Multiplicator';
 export * from './EventCard';
+export * from './Button';
