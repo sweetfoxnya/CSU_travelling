@@ -83,9 +83,12 @@ export const MultiStepForm = ({context, multiStepCase}: MultistepProps) => {
       return (
         <Full
           activePage={activePage}
+          handleDateSubmit={handleDateSubmit}
           handleCitySubmit={handleCitySubmit}
           handleTransportSubmit={handleTransportSubmit}
           handleHotelSubmit={handleHotelSubmit}
+          handleEventsSubmit={handleEventsSubmit}
+          handleSubmit={handleSubmit}
         />
       );
 
