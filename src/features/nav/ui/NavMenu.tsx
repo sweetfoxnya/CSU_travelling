@@ -14,9 +14,6 @@ export const NavMenu = () => {
       <SC.Link to='/auth/register'>
         Register
       </SC.Link>
-      <SC.Link to='/profile'>
-        Profile
-      </SC.Link>
       <SC.Link to='/excursions'>
         Excursions
       </SC.Link>
