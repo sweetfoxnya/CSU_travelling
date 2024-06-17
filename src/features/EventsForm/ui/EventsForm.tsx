@@ -5,6 +5,7 @@ import {Flex, Select} from "@shared";
 
 import {EventModel, EventSelectModel, EventsFormProps} from "../model";
 import {mapEventsToSelect} from "../libs";
+import {useEvents} from "../api";
 
 import * as SC from './EventsForm.styles';
 
@@ -32,7 +33,17 @@ export const EventsForm = ({ handleFormSubmit }: FormProps) => {
     formState: {errors}
   } = useForm<EventsFormProps>();
 
-  const options = mapEventsToSelect(mockEvents);
+  const { data, isPending, isError } = useEvents();
+
+  if (isPending) {
+    return <>loading</>;
+  }
+
+  if (isError) {
+    return <>error</>;
+  }
+
+  const options = mapEventsToSelect(data);
 
   const onSubmit: SubmitHandler<EventsFormProps> = (data) => {
     // @ts-ignore

@@ -5,6 +5,7 @@ import {Flex, Select} from "@shared";
 
 import {HotelModel, HotelSelectModel, HotelsFormProps} from "../model";
 import {mapHotelsToSelect} from "../libs";
+import {useHotels} from "../api";
 
 import * as SC from './HotelsForm.styles';
 
@@ -32,7 +33,17 @@ export const HotelsForm = ({ handleFormSubmit }: FormProps) => {
     formState: {errors}
   } = useForm<HotelsFormProps>();
 
-  const options = mapHotelsToSelect(mockHotels);
+  const { data, isPending, isError } = useHotels();
+
+  if (isPending) {
+    return <>loading</>;
+  }
+
+  if (isError) {
+    return <>error</>;
+  }
+
+  const options = mapHotelsToSelect(data);
 
   const onSubmit: SubmitHandler<HotelsFormProps> = ({ hotel }) => {
     handleFormSubmit(hotel);
