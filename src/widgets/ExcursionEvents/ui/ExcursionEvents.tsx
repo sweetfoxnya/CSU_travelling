@@ -2,7 +2,7 @@ import React, {createContext} from 'react';
 
 import {MultiStepForm} from "@widgets/MultiStep";
 import {useStore} from "@shared/hooks";
-import {useEvents} from "@widgets/ExcursionEvents/api";
+import {useEvents} from "@widgets/ExcursionEvents";
 
 const Context = createContext({});
 
