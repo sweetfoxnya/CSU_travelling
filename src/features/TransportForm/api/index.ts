@@ -1,9 +1,10 @@
 import {useQuery} from "@tanstack/react-query";
 
 import {instance} from "@shared/libs";
+import {API_PATH} from "@shared";
 
 export const getTransportList = () => {
-  return instance.get('http://localhost:8099/api/v1/transport/types')
+  return instance.get('/transport/types');
 }
 
 export const useCityEvents = () => {
