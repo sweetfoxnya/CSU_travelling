@@ -1,6 +1,24 @@
 import styled from "styled-components";
-import img from"../../../../static/images/auth_background.png"
-export const SignUpForm = styled.div `
+
+import img from "@static/images/auth_background.png"
+
+export const Container = styled.div`
+    max-width: 600px;
+    
+    margin: 0 auto;
+`;
+
+export const Box = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+`;
+
+export const Horizon = styled.div`
+    display: flex;
+`;
+
+export const SignUpForm = styled.form `
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,8 +30,6 @@ export const SignUpForm = styled.div `
     background-size: cover;
     background-blend-mode: darken;
     width: 100%;
-
-
 `
 export const MainContainer = styled.div`
     width: 350px;

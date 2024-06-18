@@ -7,7 +7,7 @@ export const Container = styled.div `
     background-blend-mode: darken;
     width: 100%;
 `;
-export const LoginForm = styled.div `
+export const LoginForm = styled.form `
     margin: 0;
     padding: 0;
     display: flex;

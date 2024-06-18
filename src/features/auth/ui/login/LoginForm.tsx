@@ -12,7 +12,13 @@ interface LoginFormProps {
 }
 
 export const LoginForm = (props: LoginFormProps) => {
-  const { register, handleSubmit, watch, formState: { errors } } = useForm<LoginType>();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors }
+  } = useForm<LoginType>();
+
   const onSubmit: SubmitHandler<LoginType> = (data) => {
     console.log(data);
     props.handleFormSubmit(data);

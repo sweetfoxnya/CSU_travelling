@@ -15,7 +15,7 @@ export const Title = styled.div`
     font-size: 60px;
     position: absolute;
     white-space: nowrap;
-    padding-top: 150px;
+    top: 150px;
 `;
 export const Wrapper = styled.div`
     display: flex;

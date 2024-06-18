@@ -3,7 +3,6 @@ import React from 'react';
 import {Header} from "@widgets/Header";
 
 import * as SC from "./Home.styles";
-import {Logo} from "@shared";
 
 export const Home = () => {
     return (
