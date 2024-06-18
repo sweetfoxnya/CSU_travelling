@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import img from"../../../../static/images/auth_background.png"
 export const SignUpForm = styled.div `
     margin: 0;
     padding: 0;
@@ -7,7 +7,7 @@ export const SignUpForm = styled.div `
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    //background: rgba(0, 0, 0, .50)url();
+    background: rgba(0, 0, 0, .50) url(${img});
     font-family: 'Jost', sans-serif;
     background-size: cover;
     background-blend-mode: darken;
@@ -37,7 +37,7 @@ export const Form = styled.form`
 
 `
 export const SignUpLabel = styled.label`
-    color: #fff;
+    color: #000000;
     font-size: 2.3em;
     justify-content: center;
     display: flex;
@@ -45,6 +45,7 @@ export const SignUpLabel = styled.label`
     font-weight: bold;
     cursor: pointer;
     transition: .5s ease-in-out;
+
     #chk:checked ~ & {
         transform: scale(0.6);
     }
