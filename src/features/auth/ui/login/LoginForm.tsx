@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import {Input} from "@shared";
 
 import {LoginType} from "../../model";
+import * as SC from "./LoginForm.styles";
 
 interface LoginFormProps {
   handleFormSubmit: (data: LoginType) => void;
@@ -20,34 +21,34 @@ export const LoginForm = (props: LoginFormProps) => {
   const [isShownPass, setIsShownPass] = useState(false);
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <div style={{ display: 'flex', flexDirection: 'column'}}>
-          <Input
+    <SC.Container>
+      <SC.LoginForm onSubmit={handleSubmit(onSubmit)}>
+        <SC.MainContainer>
+          <SC.Input
             type='text'
             placeholder='Email'
             {...register('login')}
           />
           <div>
-            <Input
+            <SC.Input
               type={isShownPass ? 'text' : 'password'}
               placeholder='Password'
               {...register('password')}
             />
-            <button
+            <SC.Button
               type="button"
               onClick={() => setIsShownPass(prev => !prev)}
             >
-              @
-            </button>
+              Показать/Скрыть
+            </SC.Button>
           </div>
-          <button type='submit'>
-            Submit
-          </button>
-        </div>
-      </form>
+          <SC.Button type='submit'>
+            Войти
+          </SC.Button>
+        </SC.MainContainer>
+      </SC.LoginForm>
       <Link to='/auth/register'>Register</Link>
-    </div>
+    </SC.Container>
   );
 };
 

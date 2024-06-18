@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import img from"../../../../static/images/auth_background.png"
 
+export const Container = styled.div `
+    background: rgba(0, 0, 0, .50) url(${img});
+    background-size: cover;
+    background-blend-mode: darken;
+    width: 100%;
+`;
 export const LoginForm = styled.div `
     margin: 0;
     padding: 0;
@@ -9,14 +15,15 @@ export const LoginForm = styled.div `
     align-items: center;
     min-height: 100vh;
     font-family: 'Jost', sans-serif;
-    background: rgba(0, 0, 0, .50) url(${img});
-    background-size: cover;
-    background-blend-mode: darken;
     
 `;
 export const MainContainer = styled.div`
     width: 350px;
     height: 500px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     
     overflow: hidden;
     border-radius: 10px;
@@ -36,7 +43,7 @@ export const SignUp = styled.div`
 export const Form = styled.form`
 
 `;
-export const SignUpLabel = styled.label`
+export const SignUpLabel = styled.input`
     color: #000000;
     font-size: 2.3em;
     justify-content: center;
@@ -82,7 +89,7 @@ export const Button = styled.button`
         background: #dbd6e1;
     }
 `;
-export const Login = styled.form`
+export const Login = styled.input`
     height: 460px;
     background: #eee;
     border-radius: 60% / 10%;

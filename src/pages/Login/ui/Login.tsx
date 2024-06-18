@@ -28,11 +28,6 @@ export const Login = () => {
   });
 
   return (
-    <div>
-      <Link to='/'>
-        Home
-      </Link>
       <LoginForm handleFormSubmit={handleSubmit}/>
-    </div>
   );
 };
