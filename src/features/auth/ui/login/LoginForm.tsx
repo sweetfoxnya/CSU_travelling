@@ -5,12 +5,16 @@ import {Link} from "react-router-dom";
 import {Input} from "@shared";
 
 import {LoginType} from "../../model";
-import * as SC from './LoginForm.styles';
 
-export const LoginForm = () => {
+interface LoginFormProps {
+  handleFormSubmit: (data: LoginType) => void;
+}
+
+export const LoginForm = (props: LoginFormProps) => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm<LoginType>();
   const onSubmit: SubmitHandler<LoginType> = (data) => {
     console.log(data);
+    props.handleFormSubmit(data);
   }
 
   const [isShownPass, setIsShownPass] = useState(false);
@@ -18,13 +22,13 @@ export const LoginForm = () => {
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <SC.Box>
+        <div style={{ display: 'flex', flexDirection: 'column'}}>
           <Input
             type='text'
             placeholder='Email'
-            {...register('email')}
+            {...register('login')}
           />
-          <SC.Horizon>
+          <div>
             <Input
               type={isShownPass ? 'text' : 'password'}
               placeholder='Password'
@@ -36,11 +40,11 @@ export const LoginForm = () => {
             >
               @
             </button>
-          </SC.Horizon>
+          </div>
           <button type='submit'>
             Submit
           </button>
-        </SC.Box>
+        </div>
       </form>
       <Link to='/auth/register'>Register</Link>
     </div>
