@@ -6,6 +6,7 @@ import {ExcursionCityEvents} from "@widgets/MultiStep";
 import {CityForm, CityFormProps} from "@features/CityForm";
 import {EventsForm, EventsFormProps} from "@features/EventsForm";
 import {useStore} from "@shared/hooks";
+import {Button} from "@shared";
 
 import * as SC from "./CityEvents.styles";
 
@@ -33,7 +34,7 @@ export const CityEvents = observer(({
   }, [data]);
 
   return (
-    <>
+    <SC.Container>
       <MultiStep
         activeStep={activePage}
         showNavigation={false}
@@ -45,7 +46,7 @@ export const CityEvents = observer(({
           <EventsForm handleFormSubmit={handleEventsSubmit} />
         </SC.Wrapper>
       </MultiStep>
-      <button
+      <Button
         disabled={!isFinish}
         onClick={() => {
           if (isFinish) {
@@ -55,8 +56,8 @@ export const CityEvents = observer(({
         }}
       >
         Отправить на бронь!
-      </button>
-    </>
+      </Button>
+    </SC.Container>
 )
   ;
 })
