@@ -5,6 +5,7 @@ import {Flex, Select} from "@shared";
 
 import {CityFormProps, CityModel, CitySelectModel} from "../model";
 import {mapCitiesToSelect} from "../libs";
+import {useCities} from "../api";
 
 import * as SC from './CityForm.styles';
 
@@ -31,8 +32,18 @@ export const CityForm = ({ handleFormSubmit }: FormProps) => {
     watch,
   } = useForm<CityFormProps>();
 
-  const optionsFrom = mapCitiesToSelect(mockCities);
-  const optionsTo = mapCitiesToSelect(mockCities);
+  const { data, isPending, isError } = useCities();
+
+  if (isPending) {
+    return <>loading</>;
+  }
+
+  if (isError) {
+    return <>error</>;
+  }
+
+  const optionsFrom = mapCitiesToSelect(data);
+  const optionsTo = mapCitiesToSelect(data);
 
   const onSubmit: SubmitHandler<CityFormProps> = (data) => {
     console.log(data);
