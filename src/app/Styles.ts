@@ -6,6 +6,21 @@ export const GlobalStyles = createGlobalStyle`
    License: none (public domain)
 */
 
+    @font-face {
+        font-family: 'Mont';
+        src: url('../static/fonts/Mont.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'MontBig';
+        src: url('../static/fonts/MontBig.ttf') format('truetype');
+    }
+
+    @font-face {
+        font-family: 'mr';
+        src: url('../static/fonts/mr.otf') format('truetype');
+    }
+
     html, body, div, span, applet, object, iframe,
     h1, h2, h3, h4, h5, h6, p, blockquote, pre,
     a, abbr, acronym, address, big, cite, code,

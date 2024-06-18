@@ -1,22 +1,27 @@
 import styled from "styled-components";
-import { Link as ReactLink} from 'react-router-dom';
+import {Link as ReactLink} from 'react-router-dom';
 import {rgba} from "polished";
 
 import {Color} from "@shared";
 
 export const Container = styled.nav`
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     align-items: center;
+    background-color: unset;
+    padding: 45px 60px 0 200px;
+    
 `;
 
 export const Link = styled(ReactLink)`
-    padding: 20px;
-    
+    color: ${Color.White};
+    padding: 0 15px;
     text-decoration: none;
-    color: ${Color.Black};
-    font-size: 30px;
-    
+    font-size: 17px;
+    font-family: Mont;
+
     &:hover {
-        background: ${rgba(Color.Black, .1)};
+        color: ${Color.Yellow};
     }
 `;

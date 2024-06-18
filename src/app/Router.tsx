@@ -18,7 +18,6 @@ import {MainLayout} from "@shared";
 
 export const Router = () => (
   <BrowserRouter basename="/">
-    <Header />
     <Routes>
       <Route index element={<Home />} />
       <Route path='auth' element={<MainLayout />}>
