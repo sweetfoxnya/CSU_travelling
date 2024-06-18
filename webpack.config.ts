@@ -4,6 +4,7 @@ import webpack from 'webpack';
 import type { Configuration as DevServerConfiguration} from 'webpack-dev-server';
 import Dotenv from 'dotenv-webpack';
 
+
 type Mode = 'development' | 'production';
 
 interface EnvVariables {
@@ -45,7 +46,7 @@ export default (env: EnvVariables) => {
           exclude: /node_modules/,
         },
         {
-          test: /\.png/,
+          test: /\.(?:jpg|png)$/,
           type: 'asset/resource',
         },
         {

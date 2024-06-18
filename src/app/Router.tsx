@@ -6,7 +6,6 @@ import {
   CityEvents,
   Events,
   Full,
-  Home,
   Iterable,
   Login,
   Profile,
@@ -15,10 +14,10 @@ import {
   Excursions
 } from "@pages";
 import {MainLayout} from "@shared";
+import {Home} from "@pages/Home/Home";
 
 export const Router = () => (
   <BrowserRouter basename="/">
-    <Header />
     <Routes>
       <Route index element={<Home />} />
       <Route path='auth' element={<MainLayout />}>

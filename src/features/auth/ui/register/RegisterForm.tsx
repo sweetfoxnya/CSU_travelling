@@ -14,7 +14,12 @@ interface RegisterFormProps {
 const Error = () => <span style={{color: 'red'}}>Что-то не так(</span>;
 
 export const RegisterForm = (props: RegisterFormProps) => {
-  const {register, handleSubmit, watch, formState: {errors}} = useForm<RegisterType>();
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: {errors
+    }} = useForm<RegisterType>();
 
   const {handleFormSubmit} = props;
   const onSubmit: SubmitHandler<RegisterType> = (data) => {
@@ -24,7 +29,7 @@ export const RegisterForm = (props: RegisterFormProps) => {
   const [isShownPass, setIsShownPass] = useState(false);
 
   return (
-    <div>
+    <SC.Container>
       <form onSubmit={handleSubmit(onSubmit)}>
         <SC.Box>
           <Input
@@ -61,6 +66,6 @@ export const RegisterForm = (props: RegisterFormProps) => {
         </SC.Box>
       </form>
       <Link to='/auth/login'>Login</Link>
-    </div>
+    </SC.Container>
   );
 };
