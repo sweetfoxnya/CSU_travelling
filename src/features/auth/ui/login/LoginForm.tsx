@@ -7,14 +7,10 @@ import {Input} from "@shared";
 import {LoginType} from "../../model";
 import * as SC from './LoginForm.styles';
 
-interface LoginProps {
-  handleFormSubmit: (data: LoginType) => void;
-}
-
-export const LoginForm = ({ handleFormSubmit }: LoginProps) => {
+export const LoginForm = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm<LoginType>();
   const onSubmit: SubmitHandler<LoginType> = (data) => {
-    handleFormSubmit(data);
+    console.log(data);
   }
 
   const [isShownPass, setIsShownPass] = useState(false);
@@ -26,7 +22,7 @@ export const LoginForm = ({ handleFormSubmit }: LoginProps) => {
           <Input
             type='text'
             placeholder='Email'
-            {...register('login')}
+            {...register('email')}
           />
           <SC.Horizon>
             <Input
@@ -50,3 +46,30 @@ export const LoginForm = ({ handleFormSubmit }: LoginProps) => {
     </div>
   );
 };
+
+// TODO вот это надо натянуть на форму с логикой
+// <div>
+//   <SC.LoginForm>
+//     <SC.MainContainer>
+//       <SC.CheckBox type="checkbox" aria-hidden="true" id="chk"/>
+//       <SC.SignUp>
+//         <SC.Form>
+//           <SC.SignUpLabel htmlFor='chk' aria-hidden="true">Login</SC.SignUpLabel>
+//           <SC.Input type="text" placeholder="User name"/>
+//           <SC.Input type="password" placeholder="Password" />
+//           <SC.Button>Login</SC.Button>
+//         </SC.Form>
+//       </SC.SignUp>
+//       <SC.Login>
+//         <SC.Form>
+//           <SC.LabelForLogin htmlFor='chk' aria-hidden="true">SignUp</SC.LabelForLogin>
+//           <SC.Input type="text" placeholder="User name" />
+//           <SC.Input type="email" placeholder="Email" />
+//           <SC.Input type="password" placeholder="Password" />
+//           <SC.Button>SignUp</SC.Button>
+//         </SC.Form>
+//       </SC.Login>
+//     </SC.MainContainer>
+//   </SC.LoginForm>)
+//
+// </div>

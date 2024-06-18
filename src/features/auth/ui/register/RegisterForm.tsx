@@ -25,42 +25,28 @@ export const RegisterForm = (props: RegisterFormProps) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <SC.Box>
-          <Input
-            type='text'
-            placeholder='Email'
-            {...register('email', {required: true})}
-          />
-          {errors.email && <Error />}
-          <SC.Horizon>
-            <SC.Box>
-              <Input
-                type={isShownPass ? 'text' : 'password'}
-                placeholder='Password'
-                {...register('password', {required: true, minLength: 8})}
-              />
-              {errors.password && <Error />}
-              <Input
-                type={isShownPass ? 'text' : 'password'}
-                placeholder='Repeat password'
-                {...register('passwordCheck', {required: true, minLength: 8})}
-              />
-              {errors.passwordCheck && <Error />}
-            </SC.Box>
-            <button
-              type="button"
-              onClick={() => setIsShownPass(prev => !prev)}
-            >
-              @
-            </button>
-          </SC.Horizon>
-          <button type='submit'>
-            Submit
-          </button>
-        </SC.Box>
-      </form>
-      <Link to='/auth/login'>Login</Link>
+      <SC.SignUpForm>
+        <SC.MainContainer>
+          <SC.CheckBox type="checkbox" aria-hidden="true" id="chk"/>
+          <SC.SignUp>
+            <SC.Form>
+              <SC.SignUpLabel htmlFor='chk' aria-hidden="true">SignUp</SC.SignUpLabel>
+              <SC.Input type="text" placeholder="User name"/>
+              <SC.Input type="email" placeholder="Email"/>
+              <SC.Input type="password" placeholder="Password" />
+              <SC.Button>SignUp</SC.Button>
+            </SC.Form>
+          </SC.SignUp>
+          <SC.Login>
+            <SC.Form>
+              <SC.LabelForLogin htmlFor='chk' aria-hidden="true">Login</SC.LabelForLogin>
+              <SC.Input type="text" placeholder="User name" />
+              <SC.Input type="password" placeholder="Password" />
+              <SC.Button>Login</SC.Button>
+            </SC.Form>
+          </SC.Login>
+        </SC.MainContainer>
+      </SC.SignUpForm>
     </div>
   );
 };
