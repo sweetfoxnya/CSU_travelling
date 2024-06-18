@@ -12,7 +12,7 @@ export const Excursions = () => {
   return (
     <SC.Container>
       <NavBar/>
-      <SC.Title> Выбери тип экскурсии</SC.Title>
+      <SC.Title> Выберите тип экскурсии</SC.Title>
       <SC.Wrapper>
         <SC.Link to='simple'>
           1 юзкейс(simple)
