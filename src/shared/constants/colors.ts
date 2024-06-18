@@ -4,4 +4,6 @@ export const Color = {
   'Gray': '#b3b3b3',
   'Blue': '#008aff',
   'Yellow': '#FFC700',
+  'Peach': '#ffc4b2',
+
 } as const;
