@@ -1,7 +1,5 @@
 import {useQuery} from "@tanstack/react-query";
 
-import {instance} from "@shared/libs";
-import {API_PATH} from "@shared";
 import {CityModel} from "@features/CityForm";
 
 const mockCities: CityModel[] = [
@@ -16,7 +14,7 @@ const mockCities: CityModel[] = [
 ];
 
 const getCitiesList = () => {
-  // return instance.get(API_PATH + '/cities/')
+  // return axios.get(ROUTES_API + '/cities/')
   return {
     data: mockCities
   }

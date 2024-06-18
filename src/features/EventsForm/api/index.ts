@@ -16,7 +16,7 @@ const mockEvents: EventModel[] = [
 ];
 
 const getEventsList = () => {
-  // return instance.get(API_PATH + '/events')
+  // return axios.get(EVENTS_API + '/api/events')
   return {
     data: mockEvents
   }

@@ -4,19 +4,19 @@ import {instance} from "@shared/libs";
 import {API_PATH} from "@shared";
 import {HotelModel} from "@features/HotelsForm";
 
-const getHotelsList = () => {
-  // return instance.get(API_PATH + '/hotels/search_hotels')
-  const mockHotels: HotelModel[] = [
-    {
-      id: 0,
-      name: 'Кооператор'
-    },
-    {
-      id: 1,
-      name: 'Radisson'
-    },
-  ];
+const mockHotels: HotelModel[] = [
+  {
+    id: 0,
+    name: 'Кооператор'
+  },
+  {
+    id: 1,
+    name: 'Radisson'
+  },
+];
 
+const getHotelsList = () => {
+  // return axios.get(HOTELS_API + '/hotels/search_hotels')
   return {
     data: mockHotels,
   }

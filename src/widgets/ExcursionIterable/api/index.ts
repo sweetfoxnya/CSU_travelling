@@ -2,10 +2,10 @@ import {useMutation} from "@tanstack/react-query";
 
 import {ExcursionIterable} from "@widgets/MultiStep";
 import {instance} from "@shared/libs";
-import {API_PATH} from "@shared";
+import {BOOKING_API} from "@shared";
 
 const sendIterable = (data: ExcursionIterable) => {
-  return instance.post(API_PATH + '/api/ui_root', data);
+  return instance.post(BOOKING_API + '/api/ui_root', data);
 }
 
 export const useIterable = () => useMutation({

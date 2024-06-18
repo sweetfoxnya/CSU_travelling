@@ -16,7 +16,7 @@ const mockTransport: TransportModel[] = [
 ];
 
 export const getTransportList = () => {
-  // return instance.get('/transport/types');
+  // return axios.get(TRANSPORT_API + '/transport/types');
   return {
     data: mockTransport
   }
