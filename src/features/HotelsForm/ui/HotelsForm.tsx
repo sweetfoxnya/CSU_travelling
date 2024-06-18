@@ -9,17 +9,6 @@ import {useHotels} from "../api";
 
 import * as SC from './HotelsForm.styles';
 
-const mockHotels: HotelModel[] = [
-  {
-    id: 0,
-    name: 'Кооператор'
-  },
-  {
-    id: 1,
-    name: 'Radisson'
-  },
-];
-
 interface FormProps {
   handleFormSubmit: (data: HotelModel) => void;
 }

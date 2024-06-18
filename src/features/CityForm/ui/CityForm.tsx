@@ -9,17 +9,6 @@ import {useCities} from "../api";
 
 import * as SC from './CityForm.styles';
 
-const mockCities: CityModel[] = [
-  {
-    id: 0,
-    city: 'Moscow'
-  },
-  {
-    id: 1,
-    city: 'Chelyabinsk'
-  },
-];
-
 interface FormProps {
   handleFormSubmit: (data: CityFormProps) => void;
 }

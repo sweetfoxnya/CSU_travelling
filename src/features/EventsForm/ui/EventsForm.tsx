@@ -9,17 +9,6 @@ import {useEvents} from "../api";
 
 import * as SC from './EventsForm.styles';
 
-const mockEvents: EventModel[] = [
-  {
-    id: 0,
-    name: 'Вечеринка'
-  },
-  {
-    id: 1,
-    name: 'Дискотэка'
-  },
-];
-
 interface FormProps {
   handleFormSubmit: (data: EventsFormProps) => void;
 }

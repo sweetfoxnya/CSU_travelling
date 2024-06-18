@@ -9,17 +9,6 @@ import {useCityEvents} from "../api";
 
 import * as SC from './TransportForm.styles';
 
-const mockTransport: TransportModel[] = [
-  {
-    id: 0,
-    name: 'Поезд'
-  },
-  {
-    id: 1,
-    name: 'Мошина'
-  },
-];
-
 interface FormProps {
   handleFormSubmit: (data: TransportModel) => void;
 }
