@@ -7,6 +7,7 @@ import {CityForm, CityFormProps} from "@features/CityForm";
 import {TransportForm, TransportModel} from "@features/TransportForm";
 import {ExcursionSimple} from "@widgets/MultiStep";
 import {useStore} from "@shared/hooks";
+import {Button} from "@shared";
 
 import * as SC from "./Simple.styles";
 
@@ -36,7 +37,7 @@ export const Simple = observer(({
     }, [data]);
 
     return (
-        <>
+        <SC.Container>
             <MultiStep
                 activeStep={activePage}
                 showNavigation={false}
@@ -51,7 +52,7 @@ export const Simple = observer(({
                     <TransportForm handleFormSubmit={handleTransportSubmit}/>
                 </SC.Wrapper>
             </MultiStep>
-            <button
+            <Button
                 disabled={!isFinish}
                 onClick={() => {
                     if (isFinish) {
@@ -61,7 +62,7 @@ export const Simple = observer(({
                 }}
             >
                 Отправить на бронь!
-            </button>
-        </>
+            </Button>
+        </SC.Container>
     );
 });

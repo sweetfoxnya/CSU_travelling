@@ -6,6 +6,7 @@ import {DateForm, DateFormProps} from "@features/DateForm";
 import {EventsForm, EventsFormProps} from "@features/EventsForm";
 import {ExcursionSimple} from "@widgets/MultiStep";
 import {useStore} from "@shared/hooks";
+import {Button} from "@shared";
 
 import * as SC from "./Events.styles";
 
@@ -33,7 +34,7 @@ export const Events = observer(({
     }, [data]);
 
     return (
-       <>
+       <SC.Container>
            <MultiStep
                activeStep={activePage}
                showNavigation={false}
@@ -45,7 +46,7 @@ export const Events = observer(({
                    <EventsForm handleFormSubmit={handleEventsSubmit}/>
                </SC.Wrapper>
            </MultiStep>
-           <button
+           <Button
                disabled={!isFinish}
                onClick={() => {
                    if (isFinish) {
@@ -55,6 +56,6 @@ export const Events = observer(({
                }}
            >
                Отправить на бронь!
-           </button>
-       </>
+           </Button>
+       </SC.Container>
 )});
