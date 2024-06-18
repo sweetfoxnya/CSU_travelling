@@ -4,27 +4,32 @@ import {Link} from "react-router-dom";
 import {Container} from "@shared";
 
 import * as SC from './Excursions.styles';
+import {NavMenu} from "@features/nav";
+import {NavBar} from "@pages/Excursions/ui/NavBar";
+import {Title} from "./Excursions.styles";
 
 export const Excursions = () => {
   return (
-    <Container>
+    <SC.Container>
+      <NavBar/>
+      <SC.Title> Выбери тип экскурсии</SC.Title>
       <SC.Wrapper>
-        <Link to='simple'>
+        <SC.Link to='simple'>
           1 юзкейс(simple)
-        </Link>
-        <Link to='/excursions/iterable'>
+        </SC.Link>
+        <SC.Link to='/excursions/iterable'>
           2 юзкейс(iterable)
-        </Link>
-        <Link to='/excursions/full'>
+        </SC.Link>
+        <SC.Link to='/excursions/full'>
           3 юзкейс(full)
-        </Link>
-        <Link to='/excursions/cityEvents'>
+        </SC.Link>
+        <SC.Link to='/excursions/cityEvents'>
           4 юзкейс(cityEvents)
-        </Link>
-        <Link to='/excursions/events'>
+        </SC.Link>
+        <SC.Link to='/excursions/events'>
           5 юзкейс(events)
-        </Link>
+        </SC.Link>
       </SC.Wrapper>
-    </Container>
+    </SC.Container>
   );
 };

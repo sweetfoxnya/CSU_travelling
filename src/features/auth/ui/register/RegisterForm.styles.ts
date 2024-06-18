@@ -11,6 +11,7 @@ export const SignUpForm = styled.div `
     font-family: 'Jost', sans-serif;
     background-size: cover;
     background-blend-mode: darken;
+    width: 100%;
 
 
 `

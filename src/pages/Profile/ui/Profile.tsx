@@ -1,15 +1,12 @@
 import React from 'react';
 import * as SС from './Profile.style';
+import {NavMenu} from "@pages/Profile/ui/nav/nav";
 
 export const Profile = () => {
   return (
       <SС.Container>
           <SС.Card>
-              <SС.NavBar>
-                  <SС.NavBarItem> Главная</SС.NavBarItem>
-                  <SС.NavBarItem> Экскурсии </SС.NavBarItem>
-                  <SС.NavBarItem> Мяу</SС.NavBarItem>
-              </SС.NavBar>
+              <NavMenu/>
               <SС.ProfileFrame>
                   <SС.Rectangle></SС.Rectangle>
                   <SС.Header>
@@ -25,20 +22,19 @@ export const Profile = () => {
                               Имя
                           </SС.NameData>
                           <SС.Data>
-                              Введённое значение
 
                           </SС.Data>
                           <SС.NameData>
                               Фамилия
                           </SС.NameData>
                           <SС.Data>
-                              Введённое значение
+
                           </SС.Data>
                           <SС.NameData>
                               Отчество
                           </SС.NameData>
                           <SС.Data>
-                              Введённое значение
+
                           </SС.Data>
 
                       </SС.MiniFrame>
@@ -47,19 +43,19 @@ export const Profile = () => {
                               Пол
                           </SС.NameData>
                           <SС.Data>
-                              Введённое значение
+
                           </SС.Data>
                           <SС.NameData>
                               Серия
                           </SС.NameData>
                           <SС.Data>
-                              Введённое значение
+
                           </SС.Data>
                           <SС.NameData>
                               Номер
                           </SС.NameData>
                           <SС.Data>
-                              Введённое значение
+
                           </SС.Data>
 
                       </SС.MiniFrame>

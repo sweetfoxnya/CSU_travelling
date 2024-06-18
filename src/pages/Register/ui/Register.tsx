@@ -22,11 +22,6 @@ export const Register = () => {
   });
 
   return (
-    <div>
-      <Link to='/'>
-        Home
-      </Link>
       <RegisterForm handleFormSubmit={handleSubmit} />
-    </div>
   );
 };

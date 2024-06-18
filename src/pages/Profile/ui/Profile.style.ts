@@ -5,6 +5,7 @@ import {Color} from "@shared";
 
 export const Container = styled.div`
     background: rgba(0, 0, 0, .30) url(${profile});
+    background-blend-mode: darken;
     background-size: cover;
     width: 100%;
     height: 740px;
@@ -23,20 +24,6 @@ export const Card = styled.div`
     padding: 20px;
 `;
 
-export const NavBar = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: aliceblue;
-`;
-
-export const NavBarItem = styled.a`
-    font-family: Mont;
-    &:hover {
-        color: ${Color.Peach};
-    }
-`;
-
 export const ProfileFrame = styled.div`
     display: flex;
     flex-direction: column;
@@ -45,6 +32,7 @@ export const ProfileFrame = styled.div`
 
 export const Rectangle = styled.div`
     background: rgba(0, 0, 0, .30) url(${profile});
+    background-blend-mode: darken;
     width: 800px;
     height: 70px;
     border-top-left-radius: 10px;
